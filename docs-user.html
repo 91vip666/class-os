@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class OS | 使用文档</title>
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI2NCIgZmlsbD0iIzAwNzhENCI+PC9yZWN0PjxwYXRoIGQ9Ik0yNDEgMTQxSDEzOFYyNDRIMjQxVjE0MVoiIGZpbGw9IndoaXRlIj48L3BhdGg+PHBhdGggZD0iTTM3NCAxNDFIMjcxVjI0NEgzNzRWMTQxWiIgZmlsbD0id2hpdGUiPjwvcGF0aD48cGF0aCBkPSJNMjQxIDI3MUgxMzhWMzc0SDI0MVYyNzFaIiBmaWxsPSJ3aGl0ZSI+PC9wYXRoPjxwYXRoIGQ9Ik0zNzQgMjcxSDI3MVYzNzRIMzc0VjI3MVoiIGZpbGw9IndoaXRlIj48L3BhdGg+PC9zdmc+">
+    <meta name="description" content="Class OS 官方文档 | 专为教学环境打造的Windows系统镜像">
+    <meta name="keywords" content="Class OS, ClassOS, 教学系统, 系统镜像, Windows 10, Windows 7, 文档">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#0078D4',
+                    secondary: '#F0F0F0'
+                },
+                borderRadius: {
+                    'none': '0px',
+                    'sm': '4px',
+                    DEFAULT: '8px',
+                    'md': '12px',
+                    'lg': '16px',
+                    'xl': '20px',
+                    '2xl': '24px',
+                    '3xl': '32px',
+                    'full': '9999px',
+                    'button': '8px'
+                }
+            }
+        }
+    }
+    </script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(to right, #0078D4, #00a2ff);
+            width: 0%;
+            z-index: 1000;
+            transition: width 0.3s;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        /* 页面渐入效果 */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+            animation-delay: 0.2s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Dark mode styles */
+        body, nav, footer, .glass-effect {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        body.dark-mode {
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .glass-effect {
+            background-color: rgba(20, 24, 39, 0.8);
+            color: #e0e0e0;
+            border-color: rgba(75, 85, 99, 0.5);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        body.dark-mode .text-gray-500,
+        body.dark-mode .text-gray-600 {
+            color: #a0aec0;
+        }
+        
+        body.dark-mode .text-gray-900 {
+            color: #e0e0e0;
+        }
+        
+        /* 文档嵌入样式 */
+        .docs-container {
+            height: calc(100vh - 8rem);
+            margin-top: 5rem;
+            position: relative;
+        }
+        
+        .docs-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* 加载动画 */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        body.dark-mode .preloader {
+            background-color: #111827;
+        }
+        
+        .preloader-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(0, 120, 212, 0.3);
+            border-radius: 50%;
+            border-top-color: #0078D4;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* 飞书驱动提示条样式 */
+        .feishu-powered-banner {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 100;
+            background-color: rgba(43, 153, 102, 0.95);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            line-height: 1.2;
+        }
+
+        .feishu-powered-banner .icon-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 6px;
+            font-size: 16px;
+        }
+
+        .feishu-powered-banner .highlight {
+            font-weight: bold;
+        }
+
+        /* 深色模式适配 */
+        body.dark-mode .feishu-powered-banner {
+            background-color: rgba(43, 153, 102, 0.8);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+    <!-- 预加载动画 -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-spinner"></div>
+    </div>
+    <!-- 预加载器安全处理 -->
+    <script>
+        // 直接在HTML中添加安全处理，确保预加载器不会永久卡住
+        (function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                // 强制在最长5秒后隐藏预加载器
+                setTimeout(function() {
+                    preloader.style.opacity = '0';
+                    preloader.style.visibility = 'hidden';
+                    setTimeout(function() {
+                        if (preloader.parentNode) {
+                            preloader.parentNode.removeChild(preloader);
+                        }
+                    }, 500);
+                }, 5000);
+            }
+        })();
+    </script>
+
+    <!-- 页面内容容器 -->
+    <div class="page-content fade-in">
+        <!-- 页面加载进度条 -->
+        <div class="progress-bar" id="progressBar"></div>
+    
+        <!-- header -->
+        <div id="header"></div>
+        
+        <!-- 文档内容 -->
+        <div class="docs-container">
+            <!-- 飞书驱动提示 -->
+            <div class="feishu-powered-banner">
+                <div class="icon-wrapper">
+                    <i class="ri-article-line"></i>
+                </div>
+                <div>此文档由<span class="highlight">"飞书"</span>驱动</div>
+            </div>
+            
+            <iframe 
+                class="docs-iframe" 
+                src="https://bcnaugqxbog0.feishu.cn/wiki/C8lzwSyrjilFBxkTcPyckgsCn3g?theme=light" 
+                allowfullscreen 
+                sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                loading="lazy"
+            ></iframe>
+        </div>
+
+        <!-- 底部 -->
+        <div id="footer"></div>
+    </div>
+
+    <!-- 隐藏的社区按钮，用于导航栏响应 -->
+    <div style="display: none;">
+        <a href="#" id="join-community">加入社区</a>
+    </div>
+
+    <!-- 强制使用浅色模式的内联脚本，需要在外部脚本之前执行 -->
+    <script>
+        // 检查URL参数中是否有主题设置
+        const urlParams = new URLSearchParams(window.location.search);
+        const themeParam = urlParams.get('theme');
+        
+        // 如果URL参数指定了主题，则使用指定的主题
+        if (themeParam === 'dark') {
+            localStorage.setItem('dark-mode', 'true');
+            localStorage.setItem('user-theme-preference', 'manual');
+        } else {
+            // 否则强制使用浅色模式
+            localStorage.setItem('dark-mode', 'false');
+            localStorage.setItem('user-theme-preference', 'manual');
+        }
+    </script>
+
+    <!-- 外部脚本 -->
+    <script src="js/public_style.js" defer></script>  <!-- 公共样式 -->
+    
+    <script>
+        // 确保页面始终保持与URL参数或默认设置一致的主题模式
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查当前的主题模式
+            const isDarkMode = localStorage.getItem('dark-mode') === 'true';
+            
+            // 应用主题
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                document.body.style.background = 'linear-gradient(to bottom right, #111827, #1e293b)';
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.body.style.background = 'linear-gradient(to bottom right, #eff6ff, #ffffff)';
+            }
+            
+            // 等待外部脚本加载和执行完成后再次检查和应用主题
+            setTimeout(function() {
+                // 再次检查当前的主题模式（可能已被外部脚本更改）
+                const currentIsDarkMode = localStorage.getItem('dark-mode') === 'true';
+                
+                // 应用当前主题
+                if (currentIsDarkMode) {
+                    document.body.classList.add('dark-mode');
+                    document.body.style.background = 'linear-gradient(to bottom right, #111827, #1e293b)';
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    document.body.style.background = 'linear-gradient(to bottom right, #eff6ff, #ffffff)';
+                }
+                
+                // 更新主题切换按钮图标
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    const themeIcon = themeToggle.querySelector('i');
+                    if (themeIcon) {
+                        themeIcon.className = currentIsDarkMode ? 'ri-moon-line text-gray-600' : 'ri-sun-line text-gray-600';
+                    }
+                }
+            }, 500); // 设置延时确保外部脚本执行完成
+        });
+        
+        // 进度条动画
+        window.addEventListener('load', function() {
+            const progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                progressBar.style.width = '100%';
+                setTimeout(() => {
+                    progressBar.style.opacity = '0';
+                }, 500);
+            }
+        });
+
+        // 处理社区按钮点击事件
+        document.addEventListener('DOMContentLoaded', function() {
+            const joinCommunityBtn = document.getElementById('join-community');
+            if (joinCommunityBtn) {
+                joinCommunityBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 创建模态框
+                    const dialog = document.createElement('div');
+                    dialog.className = 'fixed inset-0 flex items-center justify-center z-50';
+                    dialog.innerHTML = `
+                    <div class="fixed inset-0 bg-black bg-opacity-50"></div>
+                    <div class="glass-effect rounded-lg p-6 max-w-md w-full mx-4 relative z-10">
+                        <h3 class="text-xl font-semibold mb-4">加入 ClassOS 社区</h3>
+                        <div class="text-center mb-4">
+                        <img src="images/0f2415809be8753e652a1d41172d6d8f.jpg" alt="QQ群二维码" class="mx-auto max-w-full h-auto rounded-lg">
+                        <p class="mt-4 text-gray-600">扫一扫二维码，加入群聊</p>
+                        <p class="text-gray-600 font-bold">群号：1036796244</p>
+                        </div>
+                        <div class="flex justify-end">
+                        <button class="px-4 py-2 rounded-button bg-primary text-white hover:bg-blue-600 transition-colors">关闭</button>
+                        </div>
+                    </div>
+                    `;
+                    
+                    document.body.appendChild(dialog);
+                    
+                    // 点击背景或关闭按钮关闭模态框
+                    dialog.querySelector('.bg-black').addEventListener('click', () => dialog.remove());
+                    dialog.querySelector('button').addEventListener('click', () => dialog.remove());
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

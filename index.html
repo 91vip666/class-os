@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Class OS | 教学系统镜像下载</title>
-    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI2NCIgZmlsbD0iIzAwNzhENCI+PC9yZWN0PjxwYXRoIGQ9Ik0yNDEgMTQxSDEzOFYyNDRIMjQxVjE0MVoiIGZpbGw9IndoaXRlIj48L3BhdGg+PHBhdGggZD0iTTM3NCAxNDFIMjcxVjI0NEgzNzRWMTQxWiIgZmlsbD0id2hpdGUiPjwvcGF0aD48cGF0aCBkPSJNMjQxIDI3MUgxMzhWMzc0SDI0MVYyNzFaIiBmaWxsPSJ3aGl0ZSI+PC9wYXRoPjxwYXRoIGQ9Ik0zNzQgMjcxSDI3MVYzNzRIMzc0VjI3MVoiIGZpbGw9IndoaXRlIj48L3BhdGg+PC9zdmc+">  <!-- Win10X风格的系统图标 -->
+    <link rel="icon" href="./images/win10-preview.jpg">  <!-- 使用现有图像作为网站图标 -->
     <meta name="description" content="欢迎来到 Class OS 官方网站 | 专为教学环境打造的Windows系统镜像"> <!-- 网站描述 -->
     <meta name="keywords" content="Class OS, ClassOS, 教学系统, 系统镜像, Windows 10, Windows 7, Evan"> <!-- 网站关键字 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -310,41 +310,7 @@
             min-width: 100%;
             height: auto;
             object-fit: cover;
-            transition: transform 0.3s ease; /* 添加过渡效果 */
         }
-        
-        /* 添加轮播图鼠标悬停效果 */
-        .screenshot-container img:hover {
-            transform: scale(1.02); /* 轻微放大效果 */
-            filter: brightness(1.05); /* 提高亮度 */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 添加阴影 */
-        }
-        
-        /* 添加点击提示 */
-        .carousel::after {
-            content: "点击查看大图";
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none; /* 防止干扰点击 */
-        }
-        
-        .carousel:hover::after {
-            opacity: 1;
-        }
-        
-        /* 深色模式下的提示样式 */
-        body.dark-mode .carousel::after {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
         .carousel button {
             position: absolute;
             top: 50%;
@@ -396,39 +362,6 @@
         }
         .shake {
             animation: shake 0.5s;
-        }
-        
-        /* 专门的彩蛋按钮样式 */
-        .egg-button {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        .egg-button:hover {
-            transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 7px 14px rgba(0, 120, 212, 0.3);
-        }
-        
-        .egg-button:active {
-            transform: translateY(1px) scale(0.98);
-            box-shadow: 0 3px 8px rgba(0, 120, 212, 0.2);
-        }
-        
-        .egg-button::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.6);
-            transform: translateX(-100%);
-            transition: transform 0.4s ease-in-out;
-        }
-        
-        .egg-button:hover::after {
-            transform: translateX(0);
         }
         
         /* 深色模式下的轮播图按钮 */
@@ -594,9 +527,9 @@
                     <div class="w-full md:w-1/2">
                         <div class="carousel">
                             <div class="screenshot-container">
-                                <img src="images/win10-preview.jpg" alt="Windows 10 界面预览" onclick="openZoom(this)" class="cursor-pointer">
-                                <img src="images/win7-preview.jpg" alt="Windows 7 界面预览" onclick="openZoom(this)" class="cursor-pointer">
-                                <img src="images/win11-preview.jpg" alt="Windows 11 界面预览" onclick="openZoom(this)" class="cursor-pointer">
+                                <img src="images/win10-preview.jpg" alt="Windows 10 界面预览">
+                                <img src="images/win7-preview.jpg" alt="Windows 7 界面预览">
+                                <img src="images/win11-preview.jpg" alt="Windows 11 界面预览">
                             </div>
                             <button class="prev" title="上一张图片">
                                 <i class="ri-arrow-left-s-line"></i>
@@ -678,35 +611,35 @@
         <!-- 系统要求 -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div class="glass-effect rounded-lg p-6">
-                <h2 class="text-xl font-semibold mb-4 text-center">系统要求</h2>
+                <h2 class="text-xl font-semibold mb-4">系统最低硬件要求</h2>
                 <div class="grid md:grid-cols-3 gap-6">
-                    <div class="text-center">
-                        <h3 class="font-medium mb-2">Windows 10 版本</h3>
-                        <ul class="space-y-2 text-gray-600 list-none pl-0">
-                            <li>处理器：1 千兆赫 (GHz) 或更快的处理器或者 SoC</li>
-                            <li>运行内存[RAM]：2 GB</li>
-                            <li>存储空间：200GB[C盘推荐容量]</li>
-                            <li>图形卡：DirectX 9 或更高版本（含 WDDM 1.0 驱动程序）</li>
+                    <div>
+                        <h3 class="font-medium mb-2">ClassOS 10 版本</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• 处理器：1 千兆赫 (GHz) 或更快的处理器或者 SoC</li>
+                            <li>• 运行内存[RAM]：4 GB</li>
+                            <li>• 存储空间：200GB[C盘推荐容量]</li>
+                            <li>• 图形卡：DirectX 9 或更高版本（含 WDDM 1.0 驱动程序）</li>
                         </ul>
                     </div>
-                    <div class="text-center">
-                        <h3 class="font-medium mb-2">Windows 7 版本</h3>
-                        <ul class="space-y-2 text-gray-600 list-none pl-0">
-                            <li>处理器：1 千兆赫 (GHz) 或更快的处理器或者 SoC</li>
-                            <li>运行内存[RAM]：2 GB</li>
-                            <li>存储空间：200GB[C盘推荐容量]</li>
-                            <li>图形卡：DirectX 9 或更高版本（含 WDDM 1.0 驱动程序）</li>
+                    <div>
+                        <h3 class="font-medium mb-2">ClassOS 7 版本</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• 处理器：1 千兆赫 (GHz) 或更快的处理器或者 SoC</li>
+                            <li>• 运行内存[RAM]：4 GB</li>
+                            <li>• 存储空间：200GB[C盘推荐容量]</li>
+                            <li>• 图形卡：DirectX 9 或更高版本（含 WDDM 1.0 驱动程序）</li>
                         </ul>
                     </div>
-                    <div class="text-center">
-                        <h3 class="font-medium mb-2">Windows 11 版本</h3>
-                        <ul class="space-y-2 text-gray-600 list-none pl-0">
-                            <li>处理器：2 核1 千兆赫 (GHz) 或更快的64位处理器</li>
-                            <li>运行内存[RAM]：4 GB</li>
-                            <li>存储空间：250GB[C盘推荐容量]</li>
-                            <li>图形卡：DirectX 12 或更高版本（含 WDDM 2.0 驱动程序）</li>
-                            <li>固件：UEFI, 支持安全启动</li>
-                            <li>TPM：TPM 2.0</li>
+                    <div>
+                        <h3 class="font-medium mb-2">ClassOS 11 版本</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• 处理器：2 核1 千兆赫 (GHz) 或更快的64位处理器</li>
+                            <li>• 运行内存[RAM]：8 GB</li>
+                            <li>• 存储空间：249GB[C盘推荐容量]</li>
+                            <li>• 图形卡：DirectX 12 或更高版本（含 WDDM 2.0 驱动程序）</li>
+                            <li>• 固件：UEFI，支持安全启动</li>
+                            <li>• TPM：TPM 2.0</li>
                         </ul>
                     </div>
                 </div>
@@ -782,7 +715,7 @@
                         <i class="ri-paint-brush-line text-4xl text-primary"></i>
                         <h3 class="text-xl font-semibold ml-4">实用工具</h3>
                     </div>
-                    <p class="text-gray-600">ClassOS 内置了Potplayer和Bandizip以及IDM等实用软件。</p>
+                    <p class="text-gray-600">ClassOS 内置了PotPlayer和Bandizip以及IDM等实用软件。</p>
                 </div>
             </div>
         </div>
@@ -804,8 +737,7 @@
                     使用文档
                 </a>
                 <!-- 彩蛋按钮 -->
-                <button id="eggButton" class="egg-button bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors flex items-center">
-                    <i class="ri-emotion-happy-line mr-2"></i>
+                <button id="eggButton" class="download-btn bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors flex items-center">
                     我是彩蛋！
                 </button>
             </div>
@@ -838,7 +770,6 @@
     <!-- 外部脚本 -->
     <script src="js/public_style.js" defer></script>  <!-- 公共样式 -->
     <script src="js/index_animation.js" defer></script>  <!-- 动画 -->
-    <script src="js/egg-feature.js" defer></script>  <!-- 彩蛋功能 -->
 
     <!-- 脚本 -->
     <script>
@@ -860,10 +791,10 @@
                         <div class="mb-6 space-y-3">
                             <div class="p-4 border border-gray-200 rounded-lg">
                                 <div class="flex items-center space-x-2 mb-1">
-                                    <img src="data:image/svg+xml;base64,PHN2ZyB0PSIxNzA5OTYzMDc2NTYzIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjUxNDYiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cGF0aCBkPSJNNTEyIDEwMjRDMjI5LjIzMiAxMDI0IDAgNzk0Ljc2OCAwIDUxMlMyMjkuMjMyIDAgNTEyIDBzNTEyIDIyOS4yMzIgNTEyIDUxMi0yMjkuMjMyIDUxMi01MTIgNTEyeiBtMTc1LjYxNi01MTJjMC0xMDUuODMtNzQuNjY2LTE5NC41Ni0xNzUuNjE2LTE5NC41NlMzMzYuMzg0IDQwNi4xNyAzMzYuMzg0IDUxMnM3NC42NjYgMTk0LjU2IDE3NS42MTYgMTk0LjU2UzY4Ny42MTYgNjE3LjgzIDY4Ny42MTYgNTEyeiBtLTExOS40NjUgMjAuNDhjMCAzMC43Mi0yNC45NjQgNTUuNjgtNTYuMTUgNTUuNjhzLTU2LjE1LTI0Ljk2LTU2LjE1LTU1LjY4YzAtMzAuNzE3IDI0Ljk2NC01NS42NzcgNTYuMTUtNTUuNjc3czU2LjE1IDI0Ljk2IDU2LjE1IDU1LjY3OHoiIGZpbGw9IiMzMzc4RkYiIHAtaWQ9IjUxNDciPjwvcGF0aD48L3N2Zz4=" alt="夸克网盘" class="h-6">
+                                    <img src="https://p1.ssl.qhimg.com/t017d5b9efe4da0006d.png" alt="夸克网盘" class="h-6">
                                     <h4 class="font-semibold">夸克网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">uRmj</span></p>
+                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">YmiJ</span></p>
                                 <button class="quark-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从夸克网盘下载</button>
                             </div>
                             <div class="p-4 border border-gray-200 rounded-lg">
@@ -871,7 +802,7 @@
                                     <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-6">
                                     <h4 class="font-semibold">百度网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">vs7u</span></p>
+                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">1234</span></p>
                                 <button class="baidu-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从百度网盘下载</button>
                             </div>
                         </div>
@@ -890,10 +821,10 @@
                         <div class="mb-6 space-y-3">
                             <div class="p-4 border border-gray-200 rounded-lg">
                                 <div class="flex items-center space-x-2 mb-1">
-                                    <img src="data:image/svg+xml;base64,PHN2ZyB0PSIxNzA5OTYzMDc2NTYzIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjUxNDYiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cGF0aCBkPSJNNTEyIDEwMjRDMjI5LjIzMiAxMDI0IDAgNzk0Ljc2OCAwIDUxMlMyMjkuMjMyIDAgNTEyIDBzNTEyIDIyOS4yMzIgNTEyIDUxMi0yMjkuMjMyIDUxMi01MTIgNTEyeiBtMTc1LjYxNi01MTJjMC0xMDUuODMtNzQuNjY2LTE5NC41Ni0xNzUuNjE2LTE5NC41NlMzMzYuMzg0IDQwNi4xNyAzMzYuMzg0IDUxMnM3NC42NjYgMTk0LjU2IDE3NS42MTYgMTk0LjU2UzY4Ny42MTYgNjE3LjgzIDY4Ny42MTYgNTEyeiBtLTExOS40NjUgMjAuNDhjMCAzMC43Mi0yNC45NjQgNTUuNjgtNTYuMTUgNTUuNjhzLTU2LjE1LTI0Ljk2LTU2LjE1LTU1LjY4YzAtMzAuNzE3IDI0Ljk2NC01NS42NzcgNTYuMTUtNTUuNjc3czU2LjE1IDI0Ljk2IDU2LjE1IDU1LjY3OHoiIGZpbGw9IiMzMzc4RkYiIHAtaWQ9IjUxNDciPjwvcGF0aD48L3N2Zz4=" alt="夸克网盘" class="h-6">
+                                    <img src="https://p1.ssl.qhimg.com/t017d5b9efe4da0006d.png" alt="夸克网盘" class="h-6">
                                     <h4 class="font-semibold">夸克网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">3cG1</span></p>
+                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">XuVP</span></p>
                                 <button class="quark-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从夸克网盘下载</button>
                             </div>
                             <div class="p-4 border border-gray-200 rounded-lg">
@@ -901,7 +832,7 @@
                                     <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-6">
                                     <h4 class="font-semibold">百度网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">88dc</span></p>
+                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">5678</span></p>
                                 <button class="baidu-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从百度网盘下载</button>
                             </div>
                         </div>
@@ -920,10 +851,10 @@
                         <div class="mb-6 space-y-3">
                             <div class="p-4 border border-gray-200 rounded-lg">
                                 <div class="flex items-center space-x-2 mb-1">
-                                    <img src="data:image/svg+xml;base64,PHN2ZyB0PSIxNzA5OTYzMDc2NTYzIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjUxNDYiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cGF0aCBkPSJNNTEyIDEwMjRDMjI5LjIzMiAxMDI0IDAgNzk0Ljc2OCAwIDUxMlMyMjkuMjMyIDAgNTEyIDBzNTEyIDIyOS4yMzIgNTEyIDUxMi0yMjkuMjMyIDUxMi01MTIgNTEyeiBtMTc1LjYxNi01MTJjMC0xMDUuODMtNzQuNjY2LTE5NC41Ni0xNzUuNjE2LTE5NC41NlMzMzYuMzg0IDQwNi4xNyAzMzYuMzg0IDUxMnM3NC42NjYgMTk0LjU2IDE3NS42MTYgMTk0LjU2UzY4Ny42MTYgNjE3LjgzIDY4Ny42MTYgNTEyeiBtLTExOS40NjUgMjAuNDhjMCAzMC43Mi0yNC45NjQgNTUuNjgtNTYuMTUgNTUuNjhzLTU2LjE1LTI0Ljk2LTU2LjE1LTU1LjY4YzAtMzAuNzE3IDI0Ljk2NC01NS42NzcgNTYuMTUtNTUuNjc3czU2LjE1IDI0Ljk2IDU2LjE1IDU1LjY3OHoiIGZpbGw9IiMzMzc4RkYiIHAtaWQ9IjUxNDciPjwvcGF0aD48L3N2Zz4=" alt="夸克网盘" class="h-6">
+                                    <img src="https://p1.ssl.qhimg.com/t017d5b9efe4da0006d.png" alt="夸克网盘" class="h-6">
                                     <h4 class="font-semibold">夸克网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">jMX3</span></p>
+                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">Win11</span></p>
                                 <button class="quark-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从夸克网盘下载</button>
                             </div>
                             <div class="p-4 border border-gray-200 rounded-lg">
@@ -931,7 +862,7 @@
                                     <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-6">
                                     <h4 class="font-semibold">百度网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">3hhx</span></p>
+                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">9012</span></p>
                                 <button class="baidu-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从百度网盘下载</button>
                             </div>
                         </div>
@@ -956,13 +887,13 @@
                                     </div>
                                 </div>
                                 <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                                    <a href="https://pan.quark.cn/s/825810696562" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="data:image/svg+xml;base64,PHN2ZyB0PSIxNzA5OTYzMDc2NTYzIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjUxNDYiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cGF0aCBkPSJNNTEyIDEwMjRDMjI5LjIzMiAxMDI0IDAgNzk0Ljc2OCAwIDUxMlMyMjkuMjMyIDAgNTEyIDBzNTEyIDIyOS4yMzIgNTEyIDUxMi0yMjkuMjMyIDUxMi01MTIgNTEyeiBtMTc1LjYxNi01MTJjMC0xMDUuODMtNzQuNjY2LTE5NC41Ni0xNzUuNjE2LTE5NC41NlMzMzYuMzg0IDQwNi4xNyAzMzYuMzg0IDUxMnM3NC42NjYgMTk0LjU2IDE3NS42MTYgMTk0LjU2UzY4Ny42MTYgNjE3LjgzIDY4Ny42MTYgNTEyeiBtLTExOS40NjUgMjAuNDhjMCAzMC43Mi0yNC45NjQgNTUuNjgtNTYuMTUgNTUuNjhzLTU2LjE1LTI0Ljk2LTU2LjE1LTU1LjY4YzAtMzAuNzE3IDI0Ljk2NC01NS42NzcgNTYuMTUtNTUuNjc3czU2LjE1IDI0Ljk2IDU2LjE1IDU1LjY3OHoiIGZpbGw9IiMzMzc4RkYiIHAtaWQ9IjUxNDciPjwvcGF0aD48L3N2Zz4=" alt="夸克网盘" class="h-4 mr-1">
-                                        夸克网盘 (uRmj)
+                                    <a href="https://pan.quark.cn/s/36a72b387fa2" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
+                                        <img src="https://p1.ssl.qhimg.com/t017d5b9efe4da0006d.png" alt="夸克网盘" class="h-4 mr-1">
+                                        夸克网盘 (YmiJ)
                                     </a>
-                                    <a href="https://pan.baidu.com/s/1yio6TY9sa4vhf2sZ-pOEhA?pwd=vs7u" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
+                                    <a href="您的百度网盘链接(Win10)" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
                                         <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-4 mr-1">
-                                        百度网盘 (vs7u)
+                                        百度网盘 (1234)
                                     </a>
                                 </div>
                             </div>
@@ -975,13 +906,13 @@
                                     </div>
                                 </div>
                                 <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                                    <a href="https://pan.quark.cn/s/deba95d31f9b" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="data:image/svg+xml;base64,PHN2ZyB0PSIxNzA5OTYzMDc2NTYzIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjUxNDYiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cGF0aCBkPSJNNTEyIDEwMjRDMjI5LjIzMiAxMDI0IDAgNzk0Ljc2OCAwIDUxMlMyMjkuMjMyIDAgNTEyIDBzNTEyIDIyOS4yMzIgNTEyIDUxMi0yMjkuMjMyIDUxMi01MTIgNTEyeiBtMTc1LjYxNi01MTJjMC0xMDUuODMtNzQuNjY2LTE5NC41Ni0xNzUuNjE2LTE5NC41NlMzMzYuMzg0IDQwNi4xNyAzMzYuMzg0IDUxMnM3NC42NjYgMTk0LjU2IDE3NS42MTYgMTk0LjU2UzY4Ny42MTYgNjE3LjgzIDY4Ny42MTYgNTEyeiBtLTExOS40NjUgMjAuNDhjMCAzMC43Mi0yNC45NjQgNTUuNjgtNTYuMTUgNTUuNjhzLTU2LjE1LTI0Ljk2LTU2LjE1LTU1LjY4YzAtMzAuNzE3IDI0Ljk2NC01NS42NzcgNTYuMTUtNTUuNjc3czU2LjE1IDI0Ljk2IDU2LjE1IDU1LjY3OHoiIGZpbGw9IiMzMzc4RkYiIHAtaWQ9IjUxNDciPjwvcGF0aD48L3N2Zz4=" alt="夸克网盘" class="h-4 mr-1">
-                                        夸克网盘 (3cG1)
+                                    <a href="https://pan.quark.cn/s/2aed52872303" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
+                                        <img src="https://p1.ssl.qhimg.com/t017d5b9efe4da0006d.png" alt="夸克网盘" class="h-4 mr-1">
+                                        夸克网盘 (XuVP)
                                     </a>
-                                    <a href="https://pan.baidu.com/s/1Y8c45kA4qMgf0j3ihUEfsQ?pwd=88dc" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
+                                    <a href="您的百度网盘链接(Win7)" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
                                         <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-4 mr-1">
-                                        百度网盘 (88dc)
+                                        百度网盘 (5678)
                                     </a>
                                 </div>
                             </div>
@@ -994,13 +925,13 @@
                                     </div>
                                 </div>
                                 <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                                    <a href="https://pan.quark.cn/s/8ed5272ea080" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="data:image/svg+xml;base64,PHN2ZyB0PSIxNzA5OTYzMDc2NTYzIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjUxNDYiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cGF0aCBkPSJNNTEyIDEwMjRDMjI5LjIzMiAxMDI0IDAgNzk0Ljc2OCAwIDUxMlMyMjkuMjMyIDAgNTEyIDBzNTEyIDIyOS4yMzIgNTEyIDUxMi0yMjkuMjMyIDUxMi01MTIgNTEyeiBtMTc1LjYxNi01MTJjMC0xMDUuODMtNzQuNjY2LTE5NC41Ni0xNzUuNjE2LTE5NC41NlMzMzYuMzg0IDQwNi4xNyAzMzYuMzg0IDUxMnM3NC42NjYgMTk0LjU2IDE3NS42MTYgMTk0LjU2UzY4Ny42MTYgNjE3LjgzIDY4Ny42MTYgNTEyeiBtLTExOS40NjUgMjAuNDhjMCAzMC43Mi0yNC45NjQgNTUuNjgtNTYuMTUgNTUuNjhzLTU2LjE1LTI0Ljk2LTU2LjE1LTU1LjY4YzAtMzAuNzE3IDI0Ljk2NC01NS42NzcgNTYuMTUtNTUuNjc3czU2LjE1IDI0Ljk2IDU2LjE1IDU1LjY3OHoiIGZpbGw9IiMzMzc4RkYiIHAtaWQ9IjUxNDciPjwvcGF0aD48L3N2Zz4=" alt="夸克网盘" class="h-4 mr-1">
-                                        夸克网盘 (jMX3)
+                                    <a href="https://pan.quark.cn/s/Win11" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
+                                        <img src="https://p1.ssl.qhimg.com/t017d5b9efe4da0006d.png" alt="夸克网盘" class="h-4 mr-1">
+                                        夸克网盘 (Win11)
                                     </a>
-                                    <a href="https://pan.baidu.com/s/1ImFeBSsDnkXjYpdCb3QGFQ?pwd=3hhx" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
+                                    <a href="您的百度网盘链接(Win11)" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
                                         <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-4 mr-1">
-                                        百度网盘 (3hhx)
+                                        百度网盘 (9012)
                                     </a>
                                 </div>
                             </div>
@@ -1016,32 +947,7 @@
                 
                 // 通用的关闭对话框事件处理
                 dialog.querySelector('.bg-black').addEventListener('click', () => dialog.remove());
-                dialog.querySelector('.flex.justify-end button').addEventListener('click', () => dialog.remove());
-                
-                // 为选择下载版本对话框中的直接链接添加复制提取码功能
-                dialog.querySelectorAll('a[href*="pan.quark.cn"]').forEach(link => {
-                    const href = link.getAttribute('href');
-                    const extractionCode = link.textContent.trim().match(/\(([^)]+)\)/)?.[1];
-                    
-                    if (extractionCode) {
-                        link.addEventListener('click', function(e) {
-                            copyToClipboard(extractionCode);
-                            showNotification('正在跳转到夸克网盘下载页面，提取码：<span class="font-bold">' + extractionCode + '</span> 已自动复制到剪贴板');
-                        });
-                    }
-                });
-                
-                dialog.querySelectorAll('a[href*="pan.baidu.com"]').forEach(link => {
-                    const href = link.getAttribute('href');
-                    const extractionCode = link.textContent.trim().match(/\(([^)]+)\)/)?.[1];
-                    
-                    if (extractionCode) {
-                        link.addEventListener('click', function(e) {
-                            copyToClipboard(extractionCode);
-                            showNotification('正在跳转到百度网盘下载页面，提取码：<span class="font-bold">' + extractionCode + '</span> 已自动复制到剪贴板');
-                        });
-                    }
-                });
+                dialog.querySelector('button:last-of-type').addEventListener('click', () => dialog.remove());
                 
                 // 夸克网盘下载按钮事件
                 const quarkButtons = dialog.querySelectorAll('.quark-download');
@@ -1050,17 +956,14 @@
                         dialog.remove();
                         // 根据版本打开不同的夸克网盘链接
                         if (version.includes('Windows 10')) {
-                            window.open('https://pan.quark.cn/s/825810696562', '_blank');
-                            copyToClipboard('uRmj');
-                            showNotification('正在跳转到夸克网盘下载页面，提取码：<span class="font-bold">uRmj</span> 已自动复制到剪贴板');
+                            window.open('https://pan.quark.cn/s/36a72b387fa2', '_blank');
+                            showNotification('正在跳转到夸克网盘下载页面，提取码：<span class="font-bold">YmiJ</span>');
                         } else if (version.includes('Windows 7')) {
-                            window.open('https://pan.quark.cn/s/deba95d31f9b', '_blank');
-                            copyToClipboard('3cG1');
-                            showNotification('正在跳转到夸克网盘下载页面，提取码：<span class="font-bold">3cG1</span> 已自动复制到剪贴板');
+                            window.open('https://pan.quark.cn/s/2aed52872303', '_blank');
+                            showNotification('正在跳转到夸克网盘下载页面，提取码：<span class="font-bold">XuVP</span>');
                         } else if (version.includes('Windows 11')) {
-                            window.open('https://pan.quark.cn/s/8ed5272ea080', '_blank');
-                            copyToClipboard('jMX3');
-                            showNotification('正在跳转到夸克网盘下载页面，提取码：<span class="font-bold">jMX3</span> 已自动复制到剪贴板');
+                            window.open('https://pan.quark.cn/s/Win11', '_blank');
+                            showNotification('正在跳转到夸克网盘下载页面，提取码：<span class="font-bold">Win11</span>');
                         }
                     });
                 });
@@ -1072,17 +975,14 @@
                         dialog.remove();
                         // 根据版本打开不同的百度网盘链接
                         if (version.includes('Windows 10')) {
-                            window.open('https://pan.baidu.com/s/1yio6TY9sa4vhf2sZ-pOEhA?pwd=vs7u', '_blank');
-                            copyToClipboard('vs7u');
-                            showNotification('正在跳转到百度网盘下载页面，提取码：<span class="font-bold">vs7u</span> 已自动复制到剪贴板');
+                            window.open('您的百度网盘链接(Win10)', '_blank');
+                            showNotification('正在跳转到百度网盘下载页面，提取码：<span class="font-bold">1234</span>');
                         } else if (version.includes('Windows 7')) {
-                            window.open('https://pan.baidu.com/s/1Y8c45kA4qMgf0j3ihUEfsQ?pwd=88dc', '_blank');
-                            copyToClipboard('88dc');
-                            showNotification('正在跳转到百度网盘下载页面，提取码：<span class="font-bold">88dc</span> 已自动复制到剪贴板');
+                            window.open('您的百度网盘链接(Win7)', '_blank');
+                            showNotification('正在跳转到百度网盘下载页面，提取码：<span class="font-bold">5678</span>');
                         } else if (version.includes('Windows 11')) {
-                            window.open('https://pan.baidu.com/s/1ImFeBSsDnkXjYpdCb3QGFQ?pwd=3hhx', '_blank');
-                            copyToClipboard('3hhx');
-                            showNotification('正在跳转到百度网盘下载页面，提取码：<span class="font-bold">3hhx</span> 已自动复制到剪贴板');
+                            window.open('您的百度网盘链接(Win11)', '_blank');
+                            showNotification('正在跳转到百度网盘下载页面，提取码：<span class="font-bold">9012</span>');
                         }
                     });
                 });
@@ -1096,22 +996,6 @@
             notification.innerHTML = message;
             document.body.appendChild(notification);
             setTimeout(() => notification.remove(), 5000);
-        }
-        
-        // 复制文本到剪贴板的函数
-        function copyToClipboard(text, showNotify = false) {
-            navigator.clipboard.writeText(text).then(
-                function() {
-                    // 成功复制
-                    if (showNotify) {
-                        showNotification('提取码 <span class="font-bold">' + text + '</span> 已自动复制到剪贴板');
-                    }
-                },
-                function() {
-                    // 复制失败
-                    console.error('复制到剪贴板失败');
-                }
-            );
         }
 
         // 加入社区按钮点击事件

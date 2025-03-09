@@ -170,8 +170,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isVisible) {
                 animation.classList.add('visible');
                 
-                // 深色模式下为动画元素添加微光效果
-                if (isDarkMode && !animation.classList.contains('dark-glow')) {
+                // 在深色模式下，不再为标题元素添加微光效果
+                if (animation.tagName === 'H2' || animation.tagName === 'H3') {
+                    // 对于标题元素，不添加dark-glow效果
+                    if (animation.classList.contains('dark-glow')) {
+                        animation.classList.remove('dark-glow');
+                    }
+                } else if (isDarkMode && !animation.classList.contains('dark-glow')) {
                     animation.classList.add('dark-glow');
                     
                     // 动态添加样式
@@ -330,4 +335,4 @@ document.addEventListener('DOMContentLoaded', function() {
             zoomOverlay.classList.remove('visible');
         });
     }
-}); 
+});

@@ -519,9 +519,11 @@
                                 <i class="ri-download-line mr-2"></i>
                                 现在下载
                             </a>
-                            <a href="docs-user.html" class="px-6 py-2 rounded-button border border-gray-300 hover:bg-gray-100 transition-colors">
+                            <a href="docs-user.html" class="bg-emerald-600 text-white px-6 py-2 rounded-button hover:bg-emerald-700 transition-colors flex items-center">
+                                <i class="ri-book-2-line mr-2"></i>
                                 使用文档
                             </a>
+                            </button>
                         </div>
                     </div>
                     <div class="w-full md:w-1/2">
@@ -694,7 +696,7 @@
                         <i class="ri-notification-4-line text-4xl text-primary"></i>
                         <h3 class="text-xl font-semibold ml-4">增强了windows的性能</h3>
                     </div>
-                    <p class="text-gray-600">ClassOS 对性能设置方面高度重视，确保低配置电脑也能流畅使用课件功能[不同系列针对的配置不同]。</p>
+                    <p class="text-gray-600">ClassOS 对性能设置方面重点关注，确保低配置电脑也能流畅使用课件功能[不同系列针对的配置不同]。</p>
                 </div>
                 <div class="system-card rounded-lg p-6">
                     <div class="flex items-center mb-4">
@@ -737,7 +739,7 @@
                     使用文档
                 </a>
                 <!-- 彩蛋按钮 -->
-                <button id="eggButton" class="download-btn bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors flex items-center">
+                <button id="eggButton" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors flex items-center">
                     我是彩蛋！
                 </button>
             </div>
@@ -947,7 +949,11 @@
                 
                 // 通用的关闭对话框事件处理
                 dialog.querySelector('.bg-black').addEventListener('click', () => dialog.remove());
-                dialog.querySelector('button:last-of-type').addEventListener('click', () => dialog.remove());
+                // 修改选择器，确保能准确找到取消按钮
+                const cancelButton = dialog.querySelector('.flex.justify-end button');
+                if (cancelButton) {
+                    cancelButton.addEventListener('click', () => dialog.remove());
+                }
                 
                 // 夸克网盘下载按钮事件
                 const quarkButtons = dialog.querySelectorAll('.quark-download');

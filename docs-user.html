@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Class OS | 使用文档</title>
-    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI2NCIgZmlsbD0iIzAwNzhENCI+PC9yZWN0PjxwYXRoIGQ9Ik0yNDEgMTQxSDEzOFYyNDRIMjQxVjE0MVoiIGZpbGw9IndoaXRlIj48L3BhdGg+PHBhdGggZD0iTTM3NCAxNDFIMjcxVjI0NEgzNzRWMTQxWiIgZmlsbD0id2hpdGUiPjwvcGF0aD48cGF0aCBkPSJNMjQxIDI3MUgxMzhWMzc0SDI0MVYyNzFaIiBmaWxsPSJ3aGl0ZSI+PC9wYXRoPjxwYXRoIGQ9Ik0zNzQgMjcxSDI3MVYzNzRIMzc0VjI3MVoiIGZpbGw9IndoaXRlIj48L3BhdGg+PC9zdmc+">
+    <link rel="icon" href="./images/win10-preview.jpg">
     <meta name="description" content="Class OS 官方文档 | 专为教学环境打造的Windows系统镜像">
     <meta name="keywords" content="Class OS, ClassOS, 教学系统, 系统镜像, Windows 10, Windows 7, 文档">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,7 +103,6 @@
         .docs-container {
             height: calc(100vh - 8rem);
             margin-top: 5rem;
-            position: relative;
         }
         
         .docs-iframe {
@@ -149,41 +148,6 @@
             opacity: 0;
             visibility: hidden;
         }
-
-        /* 飞书驱动提示条样式 */
-        .feishu-powered-banner {
-            display: flex;
-            align-items: center;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 100;
-            background-color: rgba(43, 153, 102, 0.95);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 14px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            line-height: 1.2;
-        }
-
-        .feishu-powered-banner .icon-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 6px;
-            font-size: 16px;
-        }
-
-        .feishu-powered-banner .highlight {
-            font-weight: bold;
-        }
-
-        /* 深色模式适配 */
-        body.dark-mode .feishu-powered-banner {
-            background-color: rgba(43, 153, 102, 0.8);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-        }
     </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-blue-50 to-white">
@@ -221,14 +185,6 @@
         
         <!-- 文档内容 -->
         <div class="docs-container">
-            <!-- 飞书驱动提示 -->
-            <div class="feishu-powered-banner">
-                <div class="icon-wrapper">
-                    <i class="ri-article-line"></i>
-                </div>
-                <div>此文档由<span class="highlight">"飞书"</span>驱动</div>
-            </div>
-            
             <iframe 
                 class="docs-iframe" 
                 src="https://bcnaugqxbog0.feishu.cn/wiki/C8lzwSyrjilFBxkTcPyckgsCn3g?theme=light" 
@@ -242,66 +198,39 @@
         <div id="footer"></div>
     </div>
 
-    <!-- 隐藏的社区按钮，用于导航栏响应 -->
-    <div style="display: none;">
-        <a href="#" id="join-community">加入社区</a>
-    </div>
-
     <!-- 强制使用浅色模式的内联脚本，需要在外部脚本之前执行 -->
     <script>
-        // 检查URL参数中是否有主题设置
-        const urlParams = new URLSearchParams(window.location.search);
-        const themeParam = urlParams.get('theme');
-        
-        // 如果URL参数指定了主题，则使用指定的主题
-        if (themeParam === 'dark') {
-            localStorage.setItem('dark-mode', 'true');
-            localStorage.setItem('user-theme-preference', 'manual');
-        } else {
-            // 否则强制使用浅色模式
-            localStorage.setItem('dark-mode', 'false');
-            localStorage.setItem('user-theme-preference', 'manual');
-        }
+        // 设置为浅色模式
+        localStorage.setItem('dark-mode', 'false');
+        // 标记为手动设置，阻止系统主题切换
+        localStorage.setItem('user-theme-preference', 'manual');
     </script>
 
     <!-- 外部脚本 -->
     <script src="js/public_style.js" defer></script>  <!-- 公共样式 -->
     
     <script>
-        // 确保页面始终保持与URL参数或默认设置一致的主题模式
+        // 确保页面始终保持浅色模式
         document.addEventListener('DOMContentLoaded', function() {
-            // 检查当前的主题模式
-            const isDarkMode = localStorage.getItem('dark-mode') === 'true';
+            // 立即移除dark-mode类
+            document.body.classList.remove('dark-mode');
+            document.body.style.background = 'linear-gradient(to bottom right, #eff6ff, #ffffff)';
             
-            // 应用主题
-            if (isDarkMode) {
-                document.body.classList.add('dark-mode');
-                document.body.style.background = 'linear-gradient(to bottom right, #111827, #1e293b)';
-            } else {
+            // 等待外部脚本加载和执行完成后再次强制设置为浅色模式
+            setTimeout(function() {
+                // 再次设置localStorage
+                localStorage.setItem('dark-mode', 'false');
+                
+                // 更新DOM主题
                 document.body.classList.remove('dark-mode');
                 document.body.style.background = 'linear-gradient(to bottom right, #eff6ff, #ffffff)';
-            }
-            
-            // 等待外部脚本加载和执行完成后再次检查和应用主题
-            setTimeout(function() {
-                // 再次检查当前的主题模式（可能已被外部脚本更改）
-                const currentIsDarkMode = localStorage.getItem('dark-mode') === 'true';
-                
-                // 应用当前主题
-                if (currentIsDarkMode) {
-                    document.body.classList.add('dark-mode');
-                    document.body.style.background = 'linear-gradient(to bottom right, #111827, #1e293b)';
-                } else {
-                    document.body.classList.remove('dark-mode');
-                    document.body.style.background = 'linear-gradient(to bottom right, #eff6ff, #ffffff)';
-                }
                 
                 // 更新主题切换按钮图标
                 const themeToggle = document.getElementById('theme-toggle');
                 if (themeToggle) {
                     const themeIcon = themeToggle.querySelector('i');
                     if (themeIcon) {
-                        themeIcon.className = currentIsDarkMode ? 'ri-moon-line text-gray-600' : 'ri-sun-line text-gray-600';
+                        themeIcon.className = 'ri-sun-line text-gray-600';
                     }
                 }
             }, 500); // 设置延时确保外部脚本执行完成
@@ -315,40 +244,6 @@
                 setTimeout(() => {
                     progressBar.style.opacity = '0';
                 }, 500);
-            }
-        });
-
-        // 处理社区按钮点击事件
-        document.addEventListener('DOMContentLoaded', function() {
-            const joinCommunityBtn = document.getElementById('join-community');
-            if (joinCommunityBtn) {
-                joinCommunityBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // 创建模态框
-                    const dialog = document.createElement('div');
-                    dialog.className = 'fixed inset-0 flex items-center justify-center z-50';
-                    dialog.innerHTML = `
-                    <div class="fixed inset-0 bg-black bg-opacity-50"></div>
-                    <div class="glass-effect rounded-lg p-6 max-w-md w-full mx-4 relative z-10">
-                        <h3 class="text-xl font-semibold mb-4">加入 ClassOS 社区</h3>
-                        <div class="text-center mb-4">
-                        <img src="images/0f2415809be8753e652a1d41172d6d8f.jpg" alt="QQ群二维码" class="mx-auto max-w-full h-auto rounded-lg">
-                        <p class="mt-4 text-gray-600">扫一扫二维码，加入群聊</p>
-                        <p class="text-gray-600 font-bold">群号：1036796244</p>
-                        </div>
-                        <div class="flex justify-end">
-                        <button class="px-4 py-2 rounded-button bg-primary text-white hover:bg-blue-600 transition-colors">关闭</button>
-                        </div>
-                    </div>
-                    `;
-                    
-                    document.body.appendChild(dialog);
-                    
-                    // 点击背景或关闭按钮关闭模态框
-                    dialog.querySelector('.bg-black').addEventListener('click', () => dialog.remove());
-                    dialog.querySelector('button').addEventListener('click', () => dialog.remove());
-                });
             }
         });
     </script>

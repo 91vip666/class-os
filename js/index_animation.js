@@ -66,12 +66,51 @@ document.addEventListener('DOMContentLoaded', function() {
         const prevBtn = carousel.querySelector('.prev');
         const nextBtn = carousel.querySelector('.next');
         const images = container.querySelectorAll('img');
+        const indicatorsContainer = carousel.querySelector('.carousel-indicators');
         let currentIndex = 0;
         let autoSlideInterval;
         let lastClickTime = 0; // 记录最后一次点击时间
 
+        // 创建指示器点
+        function createIndicators() {
+            // 清空现有指示器
+            indicatorsContainer.innerHTML = '';
+            
+            // 为每张图片创建一个指示器点
+            for (let i = 0; i < images.length; i++) {
+                const indicator = document.createElement('div');
+                indicator.classList.add('carousel-indicator');
+                if (i === currentIndex) {
+                    indicator.classList.add('active');
+                }
+                indicator.setAttribute('data-index', i);
+                indicator.setAttribute('aria-label', `幻灯片 ${i + 1}`);
+                indicator.setAttribute('role', 'button');
+                
+                // 点击指示器切换到对应的图片
+                indicator.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateCarousel();
+                    stopAutoSlide();
+                    startAutoSlide();
+                });
+                
+                indicatorsContainer.appendChild(indicator);
+            }
+        }
+
         function updateCarousel() {
             container.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // 更新指示器点状态
+            const indicators = indicatorsContainer.querySelectorAll('.carousel-indicator');
+            indicators.forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
             
             // 更新辅助信息
             updateAccessibilityInfo();
@@ -153,12 +192,16 @@ document.addEventListener('DOMContentLoaded', function() {
             startAutoSlide();
         }, { passive: true });
 
-        // 设置初始状态和开始自动滚动
+        // 创建指示器点并设置初始状态
+        createIndicators();
         updateAccessibilityInfo();
         startAutoSlide();
     }
 
     // 滚动动画
+    // 用于跟踪元素是否已经离开视口的Map
+    const animationVisibilityMap = new Map();
+    
     function checkAnimations() {
         const animations = document.querySelectorAll('.animation');
         const isDarkMode = document.body.classList.contains('dark-mode');
@@ -166,9 +209,25 @@ document.addEventListener('DOMContentLoaded', function() {
         animations.forEach(animation => {
             const boundingBox = animation.getBoundingClientRect();
             const isVisible = (boundingBox.top <= window.innerHeight * 0.8);
+            const isOutOfView = (boundingBox.bottom < 0 || boundingBox.top > window.innerHeight);
+            
+            // 如果元素不在视口内，标记为已离开视口
+            if (isOutOfView) {
+                animationVisibilityMap.set(animation, false);
+                // 当元素离开视口时，移除visible类，这样当它再次进入视口时可以重新播放动画
+                animation.classList.remove('visible');
+            }
             
             if (isVisible) {
-                animation.classList.add('visible');
+                // 检查元素是否之前已经离开过视口或者是第一次显示
+                const wasOutOfView = animationVisibilityMap.get(animation) === false;
+                
+                // 如果元素之前离开过视口或者是第一次显示，则添加visible类触发动画
+                if (wasOutOfView || animationVisibilityMap.get(animation) === undefined) {
+                    animation.classList.add('visible');
+                    // 更新元素状态为已显示
+                    animationVisibilityMap.set(animation, true);
+                }
                 
                 // 在深色模式下，不再为标题元素添加微光效果
                 if (animation.tagName === 'H2' || animation.tagName === 'H3') {

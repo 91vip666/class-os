@@ -78,6 +78,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     mobileMenu.classList.add('hidden');
                     mobileMenuButton.querySelector('i').className = 'ri-menu-line text-gray-600';
                     
+                    // 在新标签页中打开网页
+                    window.open('https://github.com/classos', '_blank');
+                    
                     // 触发页面底部"加入社区"按钮的点击事件
                     const joinCommunityBtn = document.getElementById('join-community');
                     if (joinCommunityBtn) {
@@ -245,4 +248,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-}); 
+});

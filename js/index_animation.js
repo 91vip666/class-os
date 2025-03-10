@@ -266,46 +266,41 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // 处理系统卡片元素
+        // 处理系统卡片元素 - 仅为首页展示方块添加动画效果
         systemCards.forEach(card => {
-            const boundingBox = card.getBoundingClientRect();
-            const isVisible = (boundingBox.top <= window.innerHeight * 0.8);
-            const isOutOfView = (boundingBox.bottom < 0 || boundingBox.top > window.innerHeight);
+            // 检查是否是首页展示方块（在max-w-7xl容器内的系统卡片）
+            const isPreviewCard = card.closest('.max-w-7xl') !== null;
             
-            if (isOutOfView) {
-                animationVisibilityMap.set(card, false);
-                card.classList.remove('visible');
-            }
-            
-            if (isVisible) {
-                const wasOutOfView = animationVisibilityMap.get(card) === false;
+            if (isPreviewCard) {
+                // 对于首页展示方块，应用动画效果
+                const boundingBox = card.getBoundingClientRect();
+                const isVisible = (boundingBox.top <= window.innerHeight * 0.8);
+                const isOutOfView = (boundingBox.bottom < 0 || boundingBox.top > window.innerHeight);
                 
-                if (wasOutOfView || animationVisibilityMap.get(card) === undefined) {
-                    card.classList.add('visible');
-                    animationVisibilityMap.set(card, true);
+                if (isOutOfView) {
+                    animationVisibilityMap.set(card, false);
+                    card.classList.remove('visible');
                 }
+                
+                if (isVisible) {
+                    const wasOutOfView = animationVisibilityMap.get(card) === false;
+                    if (wasOutOfView || animationVisibilityMap.get(card) === undefined) {
+                        card.classList.add('visible');
+                        animationVisibilityMap.set(card, true);
+                    }
+                }
+            } else {
+                // 对于非首页展示方块，直接设置为可见，不需要动画
+                card.classList.add('visible');
+                animationVisibilityMap.set(card, true);
             }
         });
         
-        // 处理玻璃效果元素
+        // 处理玻璃效果元素 - 直接显示，不需要动画
         glassEffects.forEach(effect => {
-            const boundingBox = effect.getBoundingClientRect();
-            const isVisible = (boundingBox.top <= window.innerHeight * 0.8);
-            const isOutOfView = (boundingBox.bottom < 0 || boundingBox.top > window.innerHeight);
-            
-            if (isOutOfView) {
-                animationVisibilityMap.set(effect, false);
-                effect.classList.remove('visible');
-            }
-            
-            if (isVisible) {
-                const wasOutOfView = animationVisibilityMap.get(effect) === false;
-                
-                if (wasOutOfView || animationVisibilityMap.get(effect) === undefined) {
-                    effect.classList.add('visible');
-                    animationVisibilityMap.set(effect, true);
-                }
-            }
+            // 直接设置为可见，不需要动画
+            effect.classList.add('visible');
+            animationVisibilityMap.set(effect, true);
         });
     }
 

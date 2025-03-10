@@ -63,7 +63,7 @@
             transition: all 0.3s ease;
         }
         .card-hover {
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card-hover:hover {
             transform: translateY(-4px);
@@ -86,7 +86,7 @@
         .system-card {
             background: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(209, 213, 219, 0.3);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
             max-width: 100%; /* Ensure the card width is responsive */
         }
         .system-card:hover {
@@ -373,6 +373,17 @@
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
         .animation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 添加方块向上平滑移动效果 */
+        .system-card, .glass-effect {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .system-card.visible, .glass-effect.visible {
             opacity: 1;
             transform: translateY(0);
         }

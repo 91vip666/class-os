@@ -437,8 +437,10 @@
         .max-w-7xl .system-card {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                        transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition-delay: calc(var(--index) * 150ms);
         }
         .max-w-7xl .system-card.visible {
             opacity: 1;
@@ -868,6 +870,7 @@
     <!-- 外部脚本 -->
     <script src="js/public_style.js" defer></script>  <!-- 公共样式 -->
     <script src="js/index_animation.js" defer></script>  <!-- 动画 -->
+    <script src="js/card_animations.js" defer></script>
 
     <!-- 脚本 -->
     <script>

@@ -267,7 +267,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // 处理系统卡片元素 - 仅为首页展示方块添加动画效果
-        systemCards.forEach(card => {
+        systemCards.forEach((card, index) => {
+            // 设置卡片动画延迟索引
+            card.style.setProperty('--index', index);
             // 检查是否是首页展示方块（在max-w-7xl容器内的系统卡片）
             const isPreviewCard = card.closest('.max-w-7xl') !== null;
             
@@ -357,7 +359,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    window.addEventListener('scroll', checkAnimations);
+    window.addEventListener('scroll', throttle(checkAnimations, 100));
+
+    function throttle(func, limit) {
+        let lastFunc;
+        let lastRan;
+        return function() {
+            const context = this;
+            const args = arguments;
+            if (!lastRan) {
+                func.apply(context, args);
+                lastRan = Date.now();
+            } else {
+                clearTimeout(lastFunc);
+                lastFunc = setTimeout(function() {
+                    if ((Date.now() - lastRan) >= limit) {
+                        func.apply(context, args);
+                        lastRan = Date.now();
+                    }
+                }, limit - (Date.now() - lastRan));
+            }
+        };
+    }
     // 页面加载时检查一次
     checkAnimations();
     updateCarouselStylesForTheme();

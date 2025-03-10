@@ -10,6 +10,8 @@ Class OS 是一个专为教育环境定制的Windows系统镜像，提供优化�
 - **实用工具**: 集成PotPlayer、Bandizip、IDM等常用工具
 - **高度自定义**: 支持IT们在此镜像基础上进行个性化设置，满足不同教学需求
 
+## 系统要求
+
 ### Windows 10 版本
 - 处理器：2.0 GHz 双核处理器
 - 内存：4 GB RAM
@@ -23,7 +25,9 @@ Class OS 是一个专为教育环境定制的Windows系统镜像，提供优化�
 - 显卡：基础显卡即可
 
 ## 下载地址
-- ClassOS 官网：[点击跳转](https://os.classos.xin)
+- Windows 10 版本：[点击下载](https://os.classos.xin)
+  - 提取码：YmiJ
+- Windows 7 版本：[点击下载](https://os.classos.xin)
 
 ## 开发团队
 - 系统开发：Evan

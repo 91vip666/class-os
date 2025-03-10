@@ -63,7 +63,7 @@
             transition: all 0.3s ease;
         }
         .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
         .card-hover:hover {
             transform: translateY(-4px);
@@ -86,7 +86,7 @@
         .system-card {
             background: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(209, 213, 219, 0.3);
-            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             max-width: 100%; /* Ensure the card width is responsive */
         }
         .system-card:hover {
@@ -341,31 +341,6 @@
             right: 10px;
         }
         
-        /* 轮播图指示器点 */
-        .carousel-indicators {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-            gap: 8px;
-        }
-        .carousel-indicator {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: rgba(0, 120, 212, 0.3);
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .carousel-indicator.active {
-            background-color: rgba(0, 120, 212, 1);
-        }
-        body.dark-mode .carousel-indicator {
-            background-color: rgba(77, 166, 255, 0.3);
-        }
-        body.dark-mode .carousel-indicator.active {
-            background-color: rgba(77, 166, 255, 1);
-        }
-        
         /* 动画效果 */
         .animation {
             opacity: 0;
@@ -373,17 +348,6 @@
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
         .animation.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* 添加方块向上平滑移动效果 */
-        .system-card, .glass-effect {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .system-card.visible, .glass-effect.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -555,19 +519,17 @@
                                 <i class="ri-download-line mr-2"></i>
                                 现在下载
                             </a>
-                            <a href="docs-user.html" class="bg-emerald-600 text-white px-6 py-2 rounded-button hover:bg-emerald-700 transition-colors flex items-center">
-                                <i class="ri-book-2-line mr-2"></i>
+                            <a href="docs-user.html" class="px-6 py-2 rounded-button border border-gray-300 hover:bg-gray-100 transition-colors">
                                 使用文档
                             </a>
-                            </button>
                         </div>
                     </div>
                     <div class="w-full md:w-1/2">
                         <div class="carousel">
                             <div class="screenshot-container">
-                                <img src="images/win10-preview.jpg" alt="ClassOS 10 界面预览">
-                                <img src="images/win7-preview.jpg" alt="ClassOS 7 界面预览">
-                                <img src="images/win11-preview.jpg" alt="ClassOS 11 界面预览">
+                                <img src="images/win10-preview.jpg" alt="Windows 10 界面预览">
+                                <img src="images/win7-preview.jpg" alt="Windows 7 界面预览">
+                                <img src="images/win11-preview.jpg" alt="Windows 11 界面预览">
                             </div>
                             <button class="prev" title="上一张图片">
                                 <i class="ri-arrow-left-s-line"></i>
@@ -575,9 +537,6 @@
                             <button class="next" title="下一张图片">
                                 <i class="ri-arrow-right-s-line"></i>
                             </button>
-                            <div class="carousel-indicators">
-                                <!-- 指示器点将通过JavaScript动态生成 -->
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -593,7 +552,7 @@
                     <div class="flex items-center mb-4">
                         <i class="ri-windows-line text-4xl text-primary"></i>
                         <div class="ml-4">
-                            <h3 class="text-xl font-semibold">ClassOS 10 版本</h3>
+                            <h3 class="text-xl font-semibold">Windows 10 版本</h3>
                             <p class="text-gray-500">版本号：10.2004</p>
                         </div>
                     </div>
@@ -611,7 +570,7 @@
                     <div class="flex items-center mb-4">
                         <i class="ri-windows-line text-4xl text-primary"></i>
                         <div class="ml-4">
-                            <h3 class="text-xl font-semibold">ClassOS 7 版本</h3>
+                            <h3 class="text-xl font-semibold">Windows 7 版本</h3>
                             <p class="text-gray-500">版本号：7.SP1</p>
                         </div>
                     </div>
@@ -632,7 +591,7 @@
                     <div class="flex items-center mb-4">
                         <i class="ri-windows-line text-4xl text-primary"></i>
                         <div class="ml-4">
-                            <h3 class="text-xl font-semibold">ClassOS 11 版本</h3>
+                            <h3 class="text-xl font-semibold">Windows 11 版本</h3>
                             <p class="text-gray-500">版本号：11.22H2</p>
                         </div>
                     </div>
@@ -652,7 +611,7 @@
         <!-- 系统要求 -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div class="glass-effect rounded-lg p-6">
-                <h2 class="text-3xl font-bold mb-12 text-center animation">系统最低硬件要求</h2>
+                <h2 class="text-xl font-semibold mb-4">系统最低硬件要求</h2>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div>
                         <h3 class="font-medium mb-2">ClassOS 10 版本</h3>
@@ -697,7 +656,7 @@
                         <img src="images/win10-preview.jpg" alt="Windows 10 界面预览" onclick="openZoom(this)">
                     </div>
                     <div class="p-5">
-                        <h3 class="font-medium text-lg mb-3">ClassOS 10 界面</h3>
+                        <h3 class="font-medium text-lg mb-3">Windows 10 界面</h3>
                         <p class="text-gray-600">优化后的win10，保持传统布局的同时优化性能以便适应教学</p>
                     </div>
                 </div>
@@ -706,7 +665,7 @@
                         <img src="images/win7-preview.jpg" alt="Windows 7 界面预览" onclick="openZoom(this)">
                     </div>
                     <div class="p-5">
-                        <h3 class="font-medium text-lg mb-3">ClassOS 7 界面</h3>
+                        <h3 class="font-medium text-lg mb-3">Windows 7 界面</h3>
                         <p class="text-gray-600">经典的win7，保持传统布局的同时优化性能以便适应教学</p>
                     </div>
                 </div>
@@ -718,7 +677,7 @@
                         <img src="images/win11-preview.jpg" alt="Windows 11 界面预览" onclick="openZoom(this)">
                     </div>
                     <div class="p-5">
-                        <h3 class="font-medium text-lg mb-3">ClassOS 11 界面</h3>
+                        <h3 class="font-medium text-lg mb-3">Windows 11 界面</h3>
                         <p class="text-gray-600">现代的win11，现代化界面与强大性能相结合，支持最新教学软件与技术</p>
                     </div>
                 </div>
@@ -733,9 +692,9 @@
                 <div class="system-card rounded-lg p-6">
                     <div class="flex items-center mb-4">
                         <i class="ri-notification-4-line text-4xl text-primary"></i>
-                        <h3 class="text-xl font-semibold ml-4">增强了Windows的性能</h3>
+                        <h3 class="text-xl font-semibold ml-4">增强了windows的性能</h3>
                     </div>
-                    <p class="text-gray-600">ClassOS 对性能设置方面重点关注，确保低配置电脑也能流畅使用课件功能[不同系列针对的配置不同]。</p>
+                    <p class="text-gray-600">ClassOS 对性能设置方面高度重视，确保低配置电脑也能流畅使用课件功能[不同系列针对的配置不同]。</p>
                 </div>
                 <div class="system-card rounded-lg p-6">
                     <div class="flex items-center mb-4">
@@ -763,7 +722,7 @@
 
         <!-- 下载和社区 -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center" id="contact">
-            <h2 class="text-3xl font-bold mb-8 animation">更多特性等你自行体验</h2>
+            <h2 class="text-3xl font-bold mb-8">更多特性等你自行体验</h2>
             <div class="flex justify-center gap-4 flex-wrap">
                 <a href="#download-section" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors flex items-center">
                     <i class="ri-download-line mr-2"></i>
@@ -778,7 +737,7 @@
                     使用文档
                 </a>
                 <!-- 彩蛋按钮 -->
-                <button id="eggButton" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors flex items-center">
+                <button id="eggButton" class="download-btn bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors flex items-center">
                     我是彩蛋！
                 </button>
             </div>
@@ -814,33 +773,6 @@
 
     <!-- 脚本 -->
     <script>
-        // 轮播图初始化
-        let currentSlide = 0;
-        const slides = document.querySelector('.screenshot-container');
-        const slideCount = slides.children.length;
-        
-        document.querySelector('.carousel .next').addEventListener('click', () => {
-            currentSlide = (currentSlide + 1) % slideCount;
-            updateSlidePosition();
-        });
-        
-        document.querySelector('.carousel .prev').addEventListener('click', () => {
-            currentSlide = (currentSlide - 1 + slideCount) % slideCount;
-            updateSlidePosition();
-        });
-        
-        function updateSlidePosition() {
-            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-        
-        // 为轮播图中的所有图片添加点击放大功能
-        document.querySelectorAll('.screenshot-container img').forEach(img => {
-            img.style.cursor = 'pointer'; // 添加指针样式，提示可点击
-            img.addEventListener('click', function() {
-                openZoom(this); // 点击时调用openZoom函数
-            });
-        });
-        
         document.querySelectorAll('.download-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const version = this.closest('.system-card')?.querySelector('h3')?.textContent || '';
@@ -859,7 +791,7 @@
                         <div class="mb-6 space-y-3">
                             <div class="p-4 border border-gray-200 rounded-lg">
                                 <div class="flex items-center space-x-2 mb-1">
-                                    <img src="./images/Quark.png" alt="夸克网盘" class="h-6">
+                                    <img src="https://p1.ssl.qhimg.com/t017d5b9efe4da0006d.png" alt="夸克网盘" class="h-6">
                                     <h4 class="font-semibold">夸克网盘</h4>
                                 </div>
                                 <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">YmiJ</span></p>
@@ -889,7 +821,7 @@
                         <div class="mb-6 space-y-3">
                             <div class="p-4 border border-gray-200 rounded-lg">
                                 <div class="flex items-center space-x-2 mb-1">
-                                    <img src="./images/Quark.png" alt="夸克网盘" class="h-6">
+                                    <img src="https://p1.ssl.qhimg.com/t017d5b9efe4da0006d.png" alt="夸克网盘" class="h-6">
                                     <h4 class="font-semibold">夸克网盘</h4>
                                 </div>
                                 <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">XuVP</span></p>
@@ -919,7 +851,7 @@
                         <div class="mb-6 space-y-3">
                             <div class="p-4 border border-gray-200 rounded-lg">
                                 <div class="flex items-center space-x-2 mb-1">
-                                    <img src="./images/Quark.png" alt="夸克网盘" class="h-6">
+                                    <img src="https://p1.ssl.qhimg.com/t017d5b9efe4da0006d.png" alt="夸克网盘" class="h-6">
                                     <h4 class="font-semibold">夸克网盘</h4>
                                 </div>
                                 <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">Win11</span></p>
@@ -956,7 +888,7 @@
                                 </div>
                                 <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
                                     <a href="https://pan.quark.cn/s/36a72b387fa2" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="./images/Quark.png" alt="夸克网盘" class="h-4 mr-1">
+                                        <img src="https://p1.ssl.qhimg.com/t017d5b9efe4da0006d.png" alt="夸克网盘" class="h-4 mr-1">
                                         夸克网盘 (YmiJ)
                                     </a>
                                     <a href="您的百度网盘链接(Win10)" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
@@ -975,7 +907,7 @@
                                 </div>
                                 <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
                                     <a href="https://pan.quark.cn/s/2aed52872303" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="./images/Quark.png" alt="夸克网盘" class="h-4 mr-1">
+                                        <img src="https://p1.ssl.qhimg.com/t017d5b9efe4da0006d.png" alt="夸克网盘" class="h-4 mr-1">
                                         夸克网盘 (XuVP)
                                     </a>
                                     <a href="您的百度网盘链接(Win7)" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
@@ -994,7 +926,7 @@
                                 </div>
                                 <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
                                     <a href="https://pan.quark.cn/s/Win11" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="./images/Quark.png" alt="夸克网盘" class="h-4 mr-1">
+                                        <img src="https://p1.ssl.qhimg.com/t017d5b9efe4da0006d.png" alt="夸克网盘" class="h-4 mr-1">
                                         夸克网盘 (Win11)
                                     </a>
                                     <a href="您的百度网盘链接(Win11)" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
@@ -1015,11 +947,7 @@
                 
                 // 通用的关闭对话框事件处理
                 dialog.querySelector('.bg-black').addEventListener('click', () => dialog.remove());
-                // 修改选择器，确保能准确找到取消按钮
-                const cancelButton = dialog.querySelector('.flex.justify-end button');
-                if (cancelButton) {
-                    cancelButton.addEventListener('click', () => dialog.remove());
-                }
+                dialog.querySelector('button:last-of-type').addEventListener('click', () => dialog.remove());
                 
                 // 夸克网盘下载按钮事件
                 const quarkButtons = dialog.querySelectorAll('.quark-download');
@@ -1074,9 +1002,6 @@
         document.getElementById('join-community').addEventListener('click', function(e) {
             e.preventDefault();
             
-            // 在新标签页中打开网页
-            window.open('https://qm.qq.com/q/UX67cHTzKo', '_blank');
-            
             // 创建模态框
             const dialog = document.createElement('div');
             dialog.className = 'fixed inset-0 flex items-center justify-center z-50';
@@ -1100,20 +1025,6 @@
             // 点击背景或关闭按钮关闭模态框
             dialog.querySelector('.bg-black').addEventListener('click', () => dialog.remove());
             dialog.querySelector('button').addEventListener('click', () => dialog.remove());
-        });
-        
-        // 导航栏中的社区链接也添加相同功能
-        document.getElementById('nav-community').addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // 在新标签页中打开网页
-            window.open('https://github.com/classos', '_blank');
-            
-            // 触发页面底部"加入社区"按钮的点击事件以显示弹窗
-            const joinCommunityBtn = document.getElementById('join-community');
-            if (joinCommunityBtn) {
-                joinCommunityBtn.click();
-            }
         });
 
         // 图片放大

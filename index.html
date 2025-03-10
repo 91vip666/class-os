@@ -144,11 +144,17 @@
         }
         
         body.dark-mode .system-card:hover {
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(77, 166, 255, 0.2);
+            background-color: rgba(35, 40, 55, 0.95);
+            border-color: rgba(77, 166, 255, 0.3);
         }
         
-        body.dark-mode .system-card:hover {
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        /* 暗色模式下为system-card内的图标添加特殊效果 */
+        body.dark-mode .system-card:hover i, 
+        body.dark-mode .system-card:hover svg {
+            color: #4da6ff;
+            transform: scale(1.1);
+            text-shadow: 0 0 8px rgba(77, 166, 255, 0.5);
         }
         
         body.dark-mode .card-hover:hover {
@@ -430,19 +436,40 @@
         .system-card, .glass-effect {
             opacity: 1;
             transform: translateY(0);
-            will-change: transform, opacity;
+            will-change: transform, opacity, box-shadow;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        box-shadow 0.4s ease,
+                        background-color 0.3s ease;
         }
         
         /* 仅为系统界面预览部分的system-card添加动画效果 */
         .max-w-7xl .system-card {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
             transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                        transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                        transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        box-shadow 0.4s ease,
+                        background-color 0.3s ease;
         }
         .max-w-7xl .system-card.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+        
+        /* 为system-card添加悬停时的动画效果 */
+        .system-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* 为system-card内的图标添加动画效果 */
+        .system-card i, .system-card svg {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .system-card:hover i, .system-card:hover svg {
+            transform: scale(1.1);
+            color: #0078D4;
         }
         
         /* 彩蛋按钮动画 */
@@ -868,6 +895,7 @@
     <!-- 外部脚本 -->
     <script src="js/public_style.js" defer></script>  <!-- 公共样式 -->
     <script src="js/index_animation.js" defer></script>  <!-- 动画 -->
+    <script src="js/card_animations.js" defer></script>  <!-- 卡片动画 -->
 
     <!-- 脚本 -->
     <script>

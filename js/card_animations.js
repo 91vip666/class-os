@@ -213,20 +213,9 @@ function animateCardsOnScroll() {
         if (cardTop < windowHeight * 0.9) {
             // 设置交错延迟
             setTimeout(() => {
-                // 添加入场动画
+                // 添加入场动画，只改变透明度，不改变位置
                 card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-                
-                // 添加微小的弹跳效果
-                card.animate([
-                    { transform: 'translateY(10px)', offset: 0 },
-                    { transform: 'translateY(-5px)', offset: 0.6 },
-                    { transform: 'translateY(0)', offset: 1 }
-                ], {
-                    duration: 600,
-                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                    fill: 'forwards'
-                });
+                // 移除了translateY的变换，取消上下移动效果
             }, index * 100); // 每个卡片延迟100ms
         }
     });
@@ -238,17 +227,15 @@ function addCardAnimationStyles() {
     styleElement.textContent = `
         /* 卡片动画相关样式 */
         .system-card {
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                        opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                         box-shadow 0.3s ease,
                         background-color 0.3s ease;
-            will-change: transform, opacity, box-shadow;
+            will-change: opacity, box-shadow;
         }
         
         /* 卡片内容淡入动画 */
         .system-card .card-content {
             opacity: 0;
-            transform: translateY(10px);
             animation: cardContentFadeIn 0.5s forwards;
             animation-delay: 0.2s;
         }
@@ -256,7 +243,6 @@ function addCardAnimationStyles() {
         @keyframes cardContentFadeIn {
             to {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
         

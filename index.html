@@ -686,7 +686,7 @@
                 </div>
             </div>
             
-            <div class="mt-8">
+            <div class="mt-8 grid md:grid-cols-2 gap-8">
                 <div class="system-card rounded-lg p-6">
                     <div class="flex items-center mb-4">
                         <i class="ri-windows-line text-4xl text-primary"></i>
@@ -705,42 +705,221 @@
                         </div>
                     </div>
                 </div>
+                <div class="system-card rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="ri-windows-line text-4xl text-primary"></i>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-semibold">ClassOS 11 Pro 版本</h3>
+                            <p class="text-gray-500 text-sm">版本号：11.23H2</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-gray-600">全新推出的专业版 Class OS，基于 Windows 11 专业版定制，Win11+所有运行库+教学必要软件,适合专业教学环境使用。</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">更新日期：2025-04-12</span>
+                            <button class="download-btn bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors">
+                                下载
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- 系统要求 -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="glass-effect rounded-lg p-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <h2 class="text-3xl font-bold mb-12 text-center animation">系统最低硬件要求</h2>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div>
-                        <h3 class="font-medium mb-2">ClassOS 10 版本</h3>
-                        <ul class="space-y-2 text-gray-600">
-                            <li>• 处理器：1 千兆赫 (GHz) 或更快的处理器或者 SoC</li>
-                            <li>• 运行内存[RAM]：4 GB</li>
-                            <li>• 存储空间：200GB[C盘推荐容量]</li>
-                            <li>• 图形卡：DirectX 9 或更高版本（含 WDDM 1.0 驱动程序）</li>
-                        </ul>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- ClassOS 10 版本 -->
+                <div class="system-card rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
+                            <i class="ri-windows-line text-3xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">ClassOS 10</h3>
                     </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="ri-cpu-line text-lg text-primary mt-1 mr-3"></i>
                     <div>
-                        <h3 class="font-medium mb-2">ClassOS 7 版本</h3>
-                        <ul class="space-y-2 text-gray-600">
-                            <li>• 处理器：1 千兆赫 (GHz) 或更快的处理器或者 SoC</li>
-                            <li>• 运行内存[RAM]：4 GB</li>
-                            <li>• 存储空间：200GB[C盘推荐容量]</li>
-                            <li>• 图形卡：DirectX 9 或更高版本（含 WDDM 1.0 驱动程序）</li>
-                        </ul>
+                                <h4 class="font-medium text-sm text-gray-500">处理器</h4>
+                                <p class="text-gray-600">1 GHz 或更快处理器/SoC</p>
                     </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="ri-ram-line text-lg text-primary mt-1 mr-3"></i>
                     <div>
-                        <h3 class="font-medium mb-2">ClassOS 11 版本</h3>
-                        <ul class="space-y-2 text-gray-600">
-                            <li>• 处理器：2 核1 千兆赫 (GHz) 或更快的64位处理器</li>
-                            <li>• 运行内存[RAM]：8 GB</li>
-                            <li>• 存储空间：249GB[C盘推荐容量]</li>
-                            <li>• 图形卡：DirectX 12 或更高版本（含 WDDM 2.0 驱动程序）</li>
-                            <li>• 固件：UEFI，支持安全启动</li>
-                            <li>• TPM：TPM 2.0</li>
-                        </ul>
+                                <h4 class="font-medium text-sm text-gray-500">运行内存</h4>
+                                <p class="text-gray-600">4 GB</p>
+                    </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="ri-hard-drive-line text-lg text-primary mt-1 mr-3"></i>
+                    <div>
+                                <h4 class="font-medium text-sm text-gray-500">存储空间</h4>
+                                <p class="text-gray-600">200 GB C盘推荐容量</p>
+                    </div>
+                </div>
+                        
+                        <div class="flex items-start">
+                            <i class="ri-gallery-line text-lg text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-sm text-gray-500">图形卡</h4>
+                                <p class="text-gray-600">DirectX 9+ (WDDM 1.0)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ClassOS 7 版本 -->
+                <div class="system-card rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
+                            <i class="ri-windows-line text-3xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">ClassOS 7</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="ri-cpu-line text-lg text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-sm text-gray-500">处理器</h4>
+                                <p class="text-gray-600">1 GHz 或更快处理器/SoC</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="ri-ram-line text-lg text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-sm text-gray-500">运行内存</h4>
+                                <p class="text-gray-600">4 GB</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="ri-hard-drive-line text-lg text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-sm text-gray-500">存储空间</h4>
+                                <p class="text-gray-600">200 GB C盘推荐容量</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="ri-gallery-line text-lg text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-sm text-gray-500">图形卡</h4>
+                                <p class="text-gray-600">DirectX 9+ (WDDM 1.0)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ClassOS 11 版本 -->
+                <div class="system-card rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
+                            <i class="ri-windows-line text-3xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">ClassOS 11</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="ri-cpu-line text-lg text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-sm text-gray-500">处理器</h4>
+                                <p class="text-gray-600">2核 1 GHz+ 64位处理器</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="ri-ram-line text-lg text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-sm text-gray-500">运行内存</h4>
+                                <p class="text-gray-600">8 GB</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="ri-hard-drive-line text-lg text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-sm text-gray-500">存储空间</h4>
+                                <p class="text-gray-600">249 GB C盘推荐容量</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="ri-gallery-line text-lg text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-sm text-gray-500">图形卡</h4>
+                                <p class="text-gray-600">DirectX 12+ (WDDM 2.0)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="ri-secure-payment-line text-lg text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-sm text-gray-500">其他要求</h4>
+                                <p class="text-gray-600">UEFI，支持安全启动，TPM 2.0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ClassOS 11 Pro 版本 -->
+                <div class="system-card rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
+                            <i class="ri-window-line text-3xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">ClassOS 11 Pro</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="ri-cpu-line text-lg text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-sm text-gray-500">处理器</h4>
+                                <p class="text-gray-600">4核 2 GHz+ 64位处理器</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="ri-ram-line text-lg text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-sm text-gray-500">运行内存</h4>
+                                <p class="text-gray-600">16 GB</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="ri-hard-drive-line text-lg text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-sm text-gray-500">存储空间</h4>
+                                <p class="text-gray-600">300 GB C盘推荐容量(建议SSD)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="ri-gallery-line text-lg text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-sm text-gray-500">图形卡</h4>
+                                <p class="text-gray-600">DirectX 12+ (WDDM 2.0)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="ri-secure-payment-line text-lg text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-sm text-gray-500">其他要求</h4>
+                                <p class="text-gray-600">UEFI，支持安全启动，TPM 2.0</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -771,7 +950,7 @@
                 </div>
             </div>
             
-            <div class="mt-8">
+            <div class="mt-8 grid md:grid-cols-2 gap-8">
                 <div class="system-card rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg">
                     <div class="image-zoom-container">
                         <img src="images/win11-preview.jpg" alt="Windows 11 界面预览" onclick="openZoom(this)">
@@ -779,6 +958,15 @@
                     <div class="p-5">
                         <h3 class="font-medium text-lg mb-3">ClassOS 11 界面</h3>
                         <p class="text-gray-600">现代的win11，现代化界面与强大性能相结合，支持最新教学软件与技术</p>
+                    </div>
+                </div>
+                <div class="system-card rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg">
+                    <div class="image-zoom-container">
+                        <img src="images/win11-pro-preview.jpg" alt="Windows 11 Pro 界面预览" onclick="openZoom(this)">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-medium text-lg mb-3">ClassOS 11 Pro 界面</h3>
+                        <p class="text-gray-600">专业版win11，Win11+所有运行库+教学必要软件,为专业教学环境量身定制</p>
                     </div>
                 </div>
             </div>
@@ -836,7 +1024,7 @@
                     <i class="ri-book-2-line mr-2"></i>
                     使用文档
                 </a>
-                <!-- 彩蛋按钮 -->
+                <!-- 彩蛋按钮 -->d
                 <button id="eggButton" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors flex items-center">
                     我是彩蛋！
                 </button>
@@ -852,7 +1040,7 @@
                 <p class="text-sm text-gray-500">Class OS 由 Evan 开发，网站由大战世新与貂蝉开发维护。</p>
             </div>
         </div>
-
+·
         <!-- 底部 -->
         <div id="footer"></div>
     </div><!-- 结束页面内容容器 -->
@@ -910,7 +1098,7 @@
                 dialog.className = 'download-dialog visible';
                 
                 // 检查是否是Windows 10版本
-                if (version.includes('Windows 10')) {
+                if (version.includes('ClassOS 10')) {
                     dialog.innerHTML = `
                     <div class="fixed inset-0 bg-black bg-opacity-50"></div>
                     <div class="glass-effect rounded-lg p-6 max-w-md w-full mx-4 relative z-10">
@@ -922,7 +1110,7 @@
                                     <img src="./images/Quark.png" alt="夸克网盘" class="h-6">
                                     <h4 class="font-semibold">夸克网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">YmiJ</span></p>
+                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">uRmj</span></p>
                                 <button class="quark-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从夸克网盘下载</button>
                             </div>
                             <div class="p-4 border border-gray-200 rounded-lg">
@@ -930,7 +1118,7 @@
                                     <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-6">
                                     <h4 class="font-semibold">百度网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">1234</span></p>
+                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">vs7u</span></p>
                                 <button class="baidu-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从百度网盘下载</button>
                             </div>
                         </div>
@@ -939,7 +1127,7 @@
                         </div>
                     </div>
                     `;
-                } else if (version.includes('Windows 7')) {
+                } else if (version.includes('ClassOS 7')) {
                     // Windows 7版本的处理逻辑
                     dialog.innerHTML = `
                     <div class="fixed inset-0 bg-black bg-opacity-50"></div>
@@ -952,7 +1140,7 @@
                                     <img src="./images/Quark.png" alt="夸克网盘" class="h-6">
                                     <h4 class="font-semibold">夸克网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">XuVP</span></p>
+                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">3cG1</span></p>
                                 <button class="quark-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从夸克网盘下载</button>
                             </div>
                             <div class="p-4 border border-gray-200 rounded-lg">
@@ -960,7 +1148,7 @@
                                     <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-6">
                                     <h4 class="font-semibold">百度网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">5678</span></p>
+                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">88dc</span></p>
                                 <button class="baidu-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从百度网盘下载</button>
                             </div>
                         </div>
@@ -969,7 +1157,7 @@
                         </div>
                     </div>
                     `;
-                } else if (version.includes('Windows 11')) {
+                } else if (version.includes('ClassOS 11') && !version.includes('Pro')) {
                     // Windows 11版本的处理逻辑
                     dialog.innerHTML = `
                     <div class="fixed inset-0 bg-black bg-opacity-50"></div>
@@ -982,7 +1170,7 @@
                                     <img src="./images/Quark.png" alt="夸克网盘" class="h-6">
                                     <h4 class="font-semibold">夸克网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">Win11</span></p>
+                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">jMX3</span></p>
                                 <button class="quark-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从夸克网盘下载</button>
                             </div>
                             <div class="p-4 border border-gray-200 rounded-lg">
@@ -990,8 +1178,41 @@
                                     <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-6">
                                     <h4 class="font-semibold">百度网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">9012</span></p>
+                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">3hhx</span></p>
                                 <button class="baidu-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从百度网盘下载</button>
+                            </div>
+                        </div>
+                        <div class="flex justify-end">
+                            <button class="px-4 py-2 rounded-button border border-gray-300 hover:bg-gray-100 transition-colors">取消</button>
+                        </div>
+                    </div>
+                    `;
+                } else if (version.includes('ClassOS 11 Pro')) {
+                    // Windows 11 Pro版本的处理逻辑
+                    dialog.innerHTML = `
+                    <div class="fixed inset-0 bg-black bg-opacity-50"></div>
+                    <div class="glass-effect rounded-lg p-6 max-w-md w-full mx-4 relative z-10">
+                        <h3 class="text-xl font-semibold mb-4">下载确认</h3>
+                        <p class="text-gray-600 mb-6">您确定要下载 ${version} 吗？</p>
+                        <div class="mb-6 space-y-3">
+                            <div class="p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="ri-windows-line text-3xl text-primary mr-2"></i>
+                                    <div>
+                                        <h4 class="font-semibold">ClassOS 11 Pro 版本</h4>
+                                        <p class="text-gray-500 text-sm">版本号：11.23H2</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+                                    <a href="https://pan.quark.cn/s/待添加" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
+                                        <img src="./images/Quark.png" alt="夸克网盘" class="h-4 mr-1">
+                                        夸克网盘 (待添加)
+                                    </a>
+                                    <a href="https://pan.baidu.com/s/待添加" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
+                                        <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-4 mr-1">
+                                        百度网盘 (待添加)
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="flex justify-end">
@@ -1010,7 +1231,7 @@
                                 <div class="flex items-center mb-2">
                                     <i class="ri-windows-line text-3xl text-primary mr-2"></i>
                                     <div>
-                                        <h4 class="font-semibold">Windows 10 版本</h4>
+                                        <h4 class="font-semibold">ClassOS 10 版本</h4>
                                         <p class="text-gray-500 text-sm">版本号：10.2004</p>
                                     </div>
                                 </div>
@@ -1029,7 +1250,7 @@
                                 <div class="flex items-center mb-2">
                                     <i class="ri-windows-line text-3xl text-primary mr-2"></i>
                                     <div>
-                                        <h4 class="font-semibold">Windows 7 版本</h4>
+                                        <h4 class="font-semibold">ClassOS 7 版本</h4>
                                         <p class="text-gray-500 text-sm">版本号：7.SP1</p>
                                     </div>
                                 </div>
@@ -1048,7 +1269,7 @@
                                 <div class="flex items-center mb-2">
                                     <i class="ri-windows-line text-3xl text-primary mr-2"></i>
                                     <div>
-                                        <h4 class="font-semibold">Windows 11 版本</h4>
+                                        <h4 class="font-semibold">ClassOS 11 版本</h4>
                                         <p class="text-gray-500 text-sm">版本号：11.22H2</p>
                                     </div>
                                 </div>
@@ -1063,9 +1284,28 @@
                                     </a>
                                 </div>
                             </div>
+                            <div class="p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="ri-windows-line text-3xl text-primary mr-2"></i>
+                                    <div>
+                                        <h4 class="font-semibold">ClassOS 11 Pro 版本</h4>
+                                        <p class="text-gray-500 text-sm">版本号：11.23H2</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+                                    <a href="https://pan.quark.cn/s/待添加" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
+                                        <img src="./images/Quark.png" alt="夸克网盘" class="h-4 mr-1">
+                                        夸克网盘 (待添加)
+                                    </a>
+                                    <a href="https://pan.baidu.com/s/待添加" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
+                                        <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-4 mr-1">
+                                        百度网盘 (待添加)
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="flex justify-end">
-                            <button class="px-4 py-2 rounded-button border border-gray-300 hover:bg-gray-100 transition-colors">关闭</button>
+                            <button class="px-4 py-2 rounded-button border border-gray-300 hover:bg-gray-100 transition-colors">取消</button>
                         </div>
                     </div>
                     `;
@@ -1112,15 +1352,18 @@
                         // 等待动画完成后移除元素
                         setTimeout(() => dialog.remove(), 300);
                         // 根据版本打开不同的夸克网盘链接
-                        if (version.includes('Windows 10')) {
+                        if (version.includes('ClassOS 10')) {
                             window.open('https://pan.quark.cn/s/825810696562', '_blank');
                             showNotification('正在跳转到夸克网盘下载页面，提取码：<span class="font-bold">uRmj</span>');
-                        } else if (version.includes('Windows 7')) {
+                        } else if (version.includes('ClassOS 7')) {
                             window.open('https://pan.quark.cn/s/deba95d31f9b', '_blank');
                             showNotification('正在跳转到夸克网盘下载页面，提取码：<span class="font-bold">3cG1</span>');
-                        } else if (version.includes('Windows 11')) {
+                        } else if (version.includes('ClassOS 11') && !version.includes('Pro')) {
                             window.open('https://pan.quark.cn/s/8ed5272ea080', '_blank');
                             showNotification('正在跳转到夸克网盘下载页面，提取码：<span class="font-bold">jMX3</span>');
+                        } else if (version.includes('ClassOS 11 Pro')) {
+                            window.open('https://pan.quark.cn/s/待添加', '_blank');
+                            showNotification('正在跳转到夸克网盘下载页面，提取码：<span class="font-bold">待添加</span>');
                         }
                     });
                 });
@@ -1140,15 +1383,18 @@
                         // 等待动画完成后移除元素
                         setTimeout(() => dialog.remove(), 300);
                         // 根据版本打开不同的百度网盘链接
-                        if (version.includes('Windows 10')) {
+                        if (version.includes('ClassOS 10')) {
                             window.open('https://pan.baidu.com/s/1yio6TY9sa4vhf2sZ-pOEhA?pwd=vs7u', '_blank');
                             showNotification('正在跳转到百度网盘下载页面，提取码：<span class="font-bold">vs7u</span>');
-                        } else if (version.includes('Windows 7')) {
+                        } else if (version.includes('ClassOS 7')) {
                             window.open('https://pan.baidu.com/s/1Y8c45kA4qMgf0j3ihUEfsQ?pwd=88dc', '_blank');
                             showNotification('正在跳转到百度网盘下载页面，提取码：<span class="font-bold">88dc</span>');
-                        } else if (version.includes('Windows 11')) {
+                        } else if (version.includes('ClassOS 11') && !version.includes('Pro')) {
                             window.open('https://pan.baidu.com/s/1ImFeBSsDnkXjYpdCb3QGFQ?pwd=3hhx', '_blank');
                             showNotification('正在跳转到百度网盘下载页面，提取码：<span class="font-bold">3hhx</span>');
+                        } else if (version.includes('ClassOS 11 Pro')) {
+                            window.open('https://pan.baidu.com/s/待添加', '_blank');
+                            showNotification('正在跳转到百度网盘下载页面，提取码：<span class="font-bold">待添加</span>');
                         }
                     });
                 });

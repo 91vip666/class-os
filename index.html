@@ -581,6 +581,48 @@
             opacity: 0;
             visibility: hidden;
         }
+
+        /* Dark mode icon adjustments */
+        /* 系统镜像下载区域图标调整 */
+        body.dark-mode #download-section .system-card i[class*="text-primary"],
+        body.dark-mode #download-section .inline-flex button[class*="text-primary"] {
+            color: #4da6ff !important;
+        }
+
+        /* 系统最低硬件要求区域图标调整 */
+        body.dark-mode .system-card i[class*="text-primary"] {
+            color: #4da6ff !important;
+        }
+
+        body.dark-mode .system-card div[class*="dark:bg-blue-900"] {
+            background-color: rgba(77, 166, 255, 0.2) !important;
+        }
+
+        /* 确保暗色模式下图标始终可见 */
+        body.dark-mode .system-card:hover i[class*="text-primary"] {
+            color: #ffffff !important;
+        }
+
+        body.dark-mode .system-card:hover div[class*="dark:bg-blue-900"] {
+            background-color: #4da6ff !important;
+        }
+
+        .chrome-word-switcher {
+            display: inline-block;
+            transition: opacity 0.5s ease-in-out;
+            min-width: 120px; /* 确保宽度稳定 */
+            text-align: center;
+        }
+
+        /* Chrome风格词语切换效果 */
+        #word-switcher {
+            display: inline-block;
+            min-width: 120px;
+            text-align: center;
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-blue-50 to-white">
@@ -619,20 +661,11 @@
         <!-- banner -->
         <div class="banner pt-24 pb-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="glass-effect rounded-lg p-4 overflow-hidden relative mb-8">
-                    <div class="flex items-center space-x-2">
-                        <i class="ri-notification-3-line text-primary"></i>
-                        <div class="notice-scroll-container">
-                            <div class="notice-scroll whitespace-nowrap">
-                                Class OS 已发布，如有BUG轻点喷。系统开发：Evan 网站开发维护：大战世新与貂蝉 加入我们QQ群支持我们qwq：1036796244  (还没出希沃专版请不要升级！！！)
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 
                 <div class="flex flex-col md:flex-row items-center">
                     <div class="w-full md:w-1/2 pr-0 md:pr-8 mb-8 md:mb-0">
-                        <h1 class="text-4xl md:text-5xl font-bold mb-4">向<strong class="text-primary">未来形态</strong>的教学系统<br>说你好</h1>
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4">向<strong class="text-primary"><span id="word-switcher">未来形态</span></strong>的教学系统<br>说你好</h1>
                         <p class="text-xl text-gray-600 mb-8">Class OS 是专为教学环境打造的Windows系统镜像，提供流畅的性能和内置教学工具，助力于思考和探索未来中科技与教学的结合</p>
                         <div class="flex flex-wrap gap-4">
                             <a href="#download-section" class="download-btn bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors flex items-center">
@@ -643,7 +676,10 @@
                                 <i class="ri-book-2-line mr-2"></i>
                                 使用文档
                             </a>
-                            </button>
+                            <a href="docs-dev.html" class="bg-amber-600 text-white px-6 py-2 rounded-button hover:bg-amber-700 transition-colors flex items-center">
+                                <i class="ri-code-box-line mr-2"></i>
+                                开发文档
+                            </a>
                         </div>
                     </div>
                     <div class="w-full md:w-1/2">
@@ -670,48 +706,16 @@
 
         <!-- 系统版本 -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="download-section">
-            <h2 class="text-3xl font-bold mb-12 text-center animation">系统镜像下载</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center animation">系统镜像下载</h2>
             
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="system-card rounded-lg p-6">
-                    <div class="flex items-center mb-4">
-                        <i class="ri-windows-line text-4xl text-primary"></i>
-                        <div class="ml-4">
-                            <h3 class="text-xl font-semibold">ClassOS 10 版本</h3>
-                            <p class="text-gray-500">版本号：10.2004</p>
-                        </div>
-                    </div>
-                    <div class="space-y-4">
-                        <p class="text-gray-600">适用于 Windows 10 系统的 Class OS 定制版本，优化系统性能，提供流畅体验，内置许多教学软件，更好的服务学生及教师。</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-500">更新日期：2025-03-01</span>
-                            <button class="download-btn bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors">
-                                下载
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="system-card rounded-lg p-6">
-                    <div class="flex items-center mb-4">
-                        <i class="ri-windows-line text-4xl text-primary"></i>
-                        <div class="ml-4">
-                            <h3 class="text-xl font-semibold">ClassOS 7 版本</h3>
-                            <p class="text-gray-500">版本号：7.SP1</p>
-                        </div>
-                    </div>
-                    <div class="space-y-4">
-                        <p class="text-gray-600">专为 Windows 7 系统打造的 Class OS 版本，保持经典界面的同时提升系统性能。</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-500">更新日期：2025-03-02</span>
-                            <button class="download-btn bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors">
-                                下载
-                            </button>
-                        </div>
-                    </div>
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex rounded-lg p-1 bg-gray-100 dark:bg-gray-800">
+                    <button class="px-4 py-2 rounded-md bg-white dark:bg-gray-700 shadow-sm text-primary font-medium" id="pc-version">PC端</button>
+                    <button class="px-4 py-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-primary" id="seewo-version">希沃</button>
                 </div>
             </div>
             
-            <div class="mt-8 grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-3 gap-8" id="pc-version-content">
                 <div class="system-card rounded-lg p-6">
                     <div class="flex items-center mb-4">
                         <i class="ri-windows-line text-4xl text-primary"></i>
@@ -721,7 +725,7 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <p class="text-gray-600">专为 Windows 11 系统打造的 Class OS 定制版本，现代化界面与强大性能相结合，支持最新教学软件与技术，提供更好的用户体验。</p>
+                        <p class="text-gray-600 min-h-[72px]">专为 Windows 11 系统打造的 Class OS 定制版本，现代化界面与强大性能相结合，支持最新教学软件与技术，提供更好的用户体验。</p>
                         <div class="flex items-center justify-between">
                             <span class="text-sm text-gray-500">更新日期：2025-03-05</span>
                             <button class="download-btn bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors">
@@ -734,17 +738,92 @@
                     <div class="flex items-center mb-4">
                         <i class="ri-windows-line text-4xl text-primary"></i>
                         <div class="ml-4">
-                            <h3 class="text-xl font-semibold">ClassOS 11 Pro 版本</h3>
-                            <p class="text-gray-500 text-sm">版本号：11.23H2</p>
+                            <h3 class="text-xl font-semibold">ClassOS 10 版本</h3>
+                            <p class="text-gray-500">版本号：10.2004</p>
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <p class="text-gray-600">全新推出的专业版 Class OS，基于 Windows 11 专业版定制，Win11+所有运行库+教学必要软件,适合专业教学环境使用。</p>
+                        <p class="text-gray-600 min-h-[72px]">适用于 Windows 10 系统的 Class OS 定制版本，优化系统性能，提供流畅体验，内置许多教学软件，更好的服务学生及教师。</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-500">更新日期：2025-04-12</span>
+                            <span class="text-sm text-gray-500">更新日期：2025-03-01</span>
+                            <a href="https://pan.quark.cn/s/6e16e73e249d" target="_blank" rel="noopener noreferrer" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors">
+                                下载
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="system-card rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="ri-windows-line text-4xl text-primary"></i>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-semibold">ClassOS 7 版本</h3>
+                            <p class="text-gray-500">版本号：7.SP1</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-gray-600 min-h-[72px]">专为 Windows 7 系统打造的 Class OS 版本，保持经典界面的同时提升系统性能。</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">更新日期：2025-03-02</span>
                             <button class="download-btn bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors">
                                 下载
                             </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8" id="seewo-version-content" style="display: none;">
+                <div class="system-card rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="ri-computer-line text-4xl text-primary"></i>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-semibold">希沃版 ClassOS 11</h3>
+                            <p class="text-gray-500">版本号：11.22H2</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-gray-600">专为希沃一体机打造的 ClassOS 11 版本，现代化界面与强大性能相结合，支持最新教学软件与技术，提供更好的用户体验。</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">更新日期：2025-03-05</span>
+                            <a href="https://pan.quark.cn/s/4f2e00af4fc1" target="_blank" rel="noopener noreferrer" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors">
+                                下载
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="system-card rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="ri-computer-line text-4xl text-primary"></i>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-semibold">希沃版 ClassOS 10</h3>
+                            <p class="text-gray-500">版本号：10.2004.SW</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-gray-600">专为希沃一体机定制的 ClassOS 10 版本，完美适配希沃硬件，提供流畅的教学体验。</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">更新日期：2025-03-01</span>
+                            <a href="https://pan.quark.cn/s/6e16e73e249d" target="_blank" rel="noopener noreferrer" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors">
+                                下载
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="system-card rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="ri-computer-line text-4xl text-primary"></i>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-semibold">希沃版 ClassOS 7</h3>
+                            <p class="text-gray-500">版本号：7.SP1</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-gray-600">为希沃一体机打造的 ClassOS 7 版本，集成希沃必备软件，并优化性能，为教学场景提供解决方案。</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">更新日期：2025-03-05</span>
+                            <a href="https://pan.quark.cn/s/7be1e0708ea5" target="_blank" rel="noopener noreferrer" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors">
+                                下载
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -755,7 +834,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <h2 class="text-3xl font-bold mb-12 text-center animation">系统最低硬件要求</h2>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- ClassOS 10 版本 -->
                 <div class="system-card rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                     <div class="flex items-center mb-6">
@@ -895,58 +974,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- ClassOS 11 Pro 版本 -->
-                <div class="system-card rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                    <div class="flex items-center mb-6">
-                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
-                            <i class="ri-window-line text-3xl text-primary"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">ClassOS 11 Pro</h3>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <i class="ri-cpu-line text-lg text-primary mt-1 mr-3"></i>
-                            <div>
-                                <h4 class="font-medium text-sm text-gray-500">处理器</h4>
-                                <p class="text-gray-600">4核 2 GHz+ 64位处理器</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <i class="ri-ram-line text-lg text-primary mt-1 mr-3"></i>
-                            <div>
-                                <h4 class="font-medium text-sm text-gray-500">运行内存</h4>
-                                <p class="text-gray-600">16 GB</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <i class="ri-hard-drive-line text-lg text-primary mt-1 mr-3"></i>
-                            <div>
-                                <h4 class="font-medium text-sm text-gray-500">存储空间</h4>
-                                <p class="text-gray-600">300 GB C盘推荐容量(建议SSD)</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <i class="ri-gallery-line text-lg text-primary mt-1 mr-3"></i>
-                            <div>
-                                <h4 class="font-medium text-sm text-gray-500">图形卡</h4>
-                                <p class="text-gray-600">DirectX 12+ (WDDM 2.0)</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <i class="ri-secure-payment-line text-lg text-primary mt-1 mr-3"></i>
-                            <div>
-                                <h4 class="font-medium text-sm text-gray-500">其他要求</h4>
-                                <p class="text-gray-600">UEFI，支持安全启动，TPM 2.0</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         
@@ -975,7 +1002,7 @@
                 </div>
             </div>
             
-            <div class="mt-8 grid md:grid-cols-2 gap-8">
+            <div class="mt-8 grid md:grid-cols-1 md:justify-items-center gap-8">
                 <div class="system-card rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg">
                     <div class="image-zoom-container">
                         <img src="images/win11-preview.jpg" alt="Windows 11 界面预览" onclick="openZoom(this)">
@@ -983,15 +1010,6 @@
                     <div class="p-5">
                         <h3 class="font-medium text-lg mb-3">ClassOS 11 界面</h3>
                         <p class="text-gray-600">现代的win11，现代化界面与强大性能相结合，支持最新教学软件与技术</p>
-                    </div>
-                </div>
-                <div class="system-card rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg">
-                    <div class="image-zoom-container">
-                        <img src="images/win11-pro-preview.jpg" alt="Windows 11 Pro 界面预览" onclick="openZoom(this)">
-                    </div>
-                    <div class="p-5">
-                        <h3 class="font-medium text-lg mb-3">ClassOS 11 Pro 界面</h3>
-                        <p class="text-gray-600">专业版win11，Win11+所有运行库+教学必要软件,为专业教学环境量身定制</p>
                     </div>
                 </div>
             </div>
@@ -1049,6 +1067,10 @@
                     <i class="ri-book-2-line mr-2"></i>
                     使用文档
                 </a>
+                <a href="docs-dev.html" class="bg-amber-600 text-white px-6 py-2 rounded-button hover:bg-amber-700 transition-colors flex items-center">
+                    <i class="ri-code-box-line mr-2"></i>
+                    开发文档
+                </a>
                 <!-- 彩蛋按钮 -->
                 <button id="eggButton" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-600 transition-colors flex items-center">
                     我是彩蛋！
@@ -1084,9 +1106,35 @@
     <script src="js/public_style.js" defer></script>  <!-- 公共样式 -->
     <script src="js/index_animation.js" defer></script>  <!-- 动画 -->
     <script src="js/card_animations.js" defer></script>
+    <script src="js/word-switcher.js" defer></script>  <!-- 词语切换效果 -->
 
     <!-- 脚本 -->
     <script>
+        // 页面加载完成后检查各元素
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('页面加载完成，检查元素...');
+            const pcVersionBtn = document.getElementById('pc-version');
+            const seewoVersionBtn = document.getElementById('seewo-version');
+            const pcVersionContent = document.getElementById('pc-version-content');
+            const seewoVersionContent = document.getElementById('seewo-version-content');
+            
+            // 确保初始状态是PC端按钮激活，PC端内容显示，希沃版内容隐藏
+            pcVersionBtn.classList.add('bg-white', 'dark:bg-gray-700', 'shadow-sm', 'text-primary');
+            pcVersionBtn.classList.remove('text-gray-500', 'dark:text-gray-400');
+            seewoVersionBtn.classList.remove('bg-white', 'dark:bg-gray-700', 'shadow-sm', 'text-primary');
+            seewoVersionBtn.classList.add('text-gray-500', 'dark:text-gray-400');
+            
+            pcVersionContent.style.display = 'grid';
+            seewoVersionContent.style.display = 'none';
+            
+            console.log('PC版按钮:', pcVersionBtn);
+            console.log('希沃版按钮:', seewoVersionBtn);
+            console.log('PC版内容:', pcVersionContent, '显示状态:', pcVersionContent.style.display);
+            console.log('希沃版内容:', seewoVersionContent, '显示状态:', seewoVersionContent.style.display);
+            
+            // 移除希沃版下载按钮专门处理，因为现在使用直接<a>链接
+        });
+
         // 轮播图初始化
         let currentSlide = 0;
         const slides = document.querySelector('.screenshot-container');
@@ -1113,6 +1161,38 @@
                 openZoom(this); // 点击时调用openZoom函数
             });
         });
+
+        // 版本切换逻辑
+        const pcVersionBtn = document.getElementById('pc-version');
+        const seewoVersionBtn = document.getElementById('seewo-version');
+        const pcVersionContent = document.getElementById('pc-version-content');
+        const seewoVersionContent = document.getElementById('seewo-version-content');
+
+        pcVersionBtn.addEventListener('click', () => {
+            pcVersionBtn.classList.add('bg-white', 'dark:bg-gray-700', 'shadow-sm', 'text-primary');
+            pcVersionBtn.classList.remove('text-gray-500', 'dark:text-gray-400');
+            seewoVersionBtn.classList.remove('bg-white', 'dark:bg-gray-700', 'shadow-sm', 'text-primary');
+            seewoVersionBtn.classList.add('text-gray-500', 'dark:text-gray-400');
+            
+            // 显示PC版内容，隐藏希沃版内容
+            pcVersionContent.style.display = 'grid';
+            seewoVersionContent.style.display = 'none';
+            
+            console.log('切换到PC端版本');
+        });
+
+        seewoVersionBtn.addEventListener('click', () => {
+            seewoVersionBtn.classList.add('bg-white', 'dark:bg-gray-700', 'shadow-sm', 'text-primary');
+            seewoVersionBtn.classList.remove('text-gray-500', 'dark:text-gray-400');
+            pcVersionBtn.classList.remove('bg-white', 'dark:bg-gray-700', 'shadow-sm', 'text-primary');
+            pcVersionBtn.classList.add('text-gray-500', 'dark:text-gray-400');
+            
+            // 显示希沃版内容，隐藏PC版内容
+            seewoVersionContent.style.display = 'grid';
+            pcVersionContent.style.display = 'none';
+            
+            console.log('切换到希沃版本');
+        });
         
         document.querySelectorAll('.download-btn').forEach(btn => {
             btn.addEventListener('click', function() {
@@ -1138,22 +1218,36 @@
                                 <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">uRmj</span></p>
                                 <button class="quark-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从夸克网盘下载</button>
                             </div>
+                                </div>
+                        <div class="flex justify-end space-x-4">
+                            <button class="px-4 py-2 text-gray-500 cancel-download">取消</button>
+                            <button class="px-4 py-2 bg-primary text-white rounded-button confirm-download">确认下载</button>
+                            </div>
+                    </div>`;
+                } else if (version.includes('ClassOS 11')) {
+                    dialog.innerHTML = `
+                    <div class="fixed inset-0 bg-black bg-opacity-50"></div>
+                    <div class="glass-effect rounded-lg p-6 max-w-md w-full mx-4 relative z-10">
+                        <h3 class="text-xl font-semibold mb-4">下载确认</h3>
+                        <p class="text-gray-600 mb-6">您确定要下载 ${version} 吗？</p>
+                        <div class="mb-6 space-y-3">
                             <div class="p-4 border border-gray-200 rounded-lg">
                                 <div class="flex items-center space-x-2 mb-1">
-                                    <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-6">
-                                    <h4 class="font-semibold">百度网盘</h4>
+                                    <img src="./images/Quark.png" alt="夸克网盘" class="h-6">
+                                    <h4 class="font-semibold">夸克网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">vs7u</span></p>
-                                <button class="baidu-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从百度网盘下载</button>
+                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">cR7s</span></p>
+                                <a href="https://pan.quark.cn/s/预留网盘链接" target="_blank" rel="noopener noreferrer" class="quark-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors flex items-center justify-center">
+                                    <i class="ri-download-line mr-2"></i>从夸克网盘下载
+                                </a>
                             </div>
                         </div>
-                        <div class="flex justify-end">
-                            <button class="px-4 py-2 rounded-button border border-gray-300 hover:bg-gray-100 transition-colors">取消</button>
+                        <div class="flex justify-end space-x-4">
+                            <button class="px-4 py-2 text-gray-500 cancel-download">取消</button>
+                            <button class="px-4 py-2 bg-primary text-white rounded-button confirm-download">确认下载</button>
                         </div>
-                    </div>
-                    `;
+                    </div>`;
                 } else if (version.includes('ClassOS 7')) {
-                    // Windows 7版本的处理逻辑
                     dialog.innerHTML = `
                     <div class="fixed inset-0 bg-black bg-opacity-50"></div>
                     <div class="glass-effect rounded-lg p-6 max-w-md w-full mx-4 relative z-10">
@@ -1165,25 +1259,16 @@
                                     <img src="./images/Quark.png" alt="夸克网盘" class="h-6">
                                     <h4 class="font-semibold">夸克网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">3cG1</span></p>
+                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">h6Nj</span></p>
                                 <button class="quark-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从夸克网盘下载</button>
                             </div>
-                            <div class="p-4 border border-gray-200 rounded-lg">
-                                <div class="flex items-center space-x-2 mb-1">
-                                    <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-6">
-                                    <h4 class="font-semibold">百度网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">88dc</span></p>
-                                <button class="baidu-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从百度网盘下载</button>
+                        <div class="flex justify-end space-x-4">
+                            <button class="px-4 py-2 text-gray-500 cancel-download">取消</button>
+                            <button class="px-4 py-2 bg-primary text-white rounded-button confirm-download">确认下载</button>
                             </div>
-                        </div>
-                        <div class="flex justify-end">
-                            <button class="px-4 py-2 rounded-button border border-gray-300 hover:bg-gray-100 transition-colors">取消</button>
-                        </div>
-                    </div>
-                    `;
-                } else if (version.includes('ClassOS 11') && !version.includes('Pro')) {
-                    // Windows 11版本的处理逻辑
+                    </div>`;
+                } else if (version.includes('ClassOS 11')) {
                     dialog.innerHTML = `
                     <div class="fixed inset-0 bg-black bg-opacity-50"></div>
                     <div class="glass-effect rounded-lg p-6 max-w-md w-full mx-4 relative z-10">
@@ -1195,259 +1280,77 @@
                                     <img src="./images/Quark.png" alt="夸克网盘" class="h-6">
                                     <h4 class="font-semibold">夸克网盘</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">jMX3</span></p>
-                                <button class="quark-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从夸克网盘下载</button>
-                            </div>
-                            <div class="p-4 border border-gray-200 rounded-lg">
-                                <div class="flex items-center space-x-2 mb-1">
-                                    <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-6">
-                                    <h4 class="font-semibold">百度网盘</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">3hhx</span></p>
-                                <button class="baidu-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors">从百度网盘下载</button>
+                                <p class="text-gray-600 text-sm mb-2">提取码：<span class="font-bold">cR7s</span></p>
+                                <a href="https://pan.quark.cn/s/预留网盘链接" target="_blank" rel="noopener noreferrer" class="quark-download w-full px-4 py-2 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors flex items-center justify-center">
+                                    <i class="ri-download-line mr-2"></i>从夸克网盘下载
+                                </a>
                             </div>
                         </div>
-                        <div class="flex justify-end">
-                            <button class="px-4 py-2 rounded-button border border-gray-300 hover:bg-gray-100 transition-colors">取消</button>
-                        </div>
-                    </div>
-                    `;
-                } else if (version.includes('ClassOS 11 Pro')) {
-                    // Windows 11 Pro版本的处理逻辑
-                    dialog.innerHTML = `
-                    <div class="fixed inset-0 bg-black bg-opacity-50"></div>
-                    <div class="glass-effect rounded-lg p-6 max-w-md w-full mx-4 relative z-10">
-                        <h3 class="text-xl font-semibold mb-4">下载确认</h3>
-                        <p class="text-gray-600 mb-6">您确定要下载 ${version} 吗？</p>
-                        <div class="mb-6 space-y-3">
-                            <div class="p-4 border border-gray-200 rounded-lg">
-                                <div class="flex items-center mb-2">
-                                    <i class="ri-windows-line text-3xl text-primary mr-2"></i>
-                                    <div>
-                                        <h4 class="font-semibold">ClassOS 11 Pro 版本</h4>
-                                        <p class="text-gray-500 text-sm">版本号：11.23H2</p>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                                    <a href="https://pan.quark.cn/s/待添加" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="./images/Quark.png" alt="夸克网盘" class="h-4 mr-1">
-                                        夸克网盘 (待添加)
-                                    </a>
-                                    <a href="https://pan.baidu.com/s/待添加" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-4 mr-1">
-                                        百度网盘 (待添加)
-                                    </a>
-                                </div>
+                        <div class="flex justify-end space-x-4">
+                            <button class="px-4 py-2 text-gray-500 cancel-download">取消</button>
+                            <button class="px-4 py-2 bg-primary text-white rounded-button confirm-download">确认下载</button>
                             </div>
-                        </div>
-                        <div class="flex justify-end">
-                            <button class="px-4 py-2 rounded-button border border-gray-300 hover:bg-gray-100 transition-colors">取消</button>
-                        </div>
-                    </div>
-                    `;
-                } else {
-                    // 普通下载按钮点击的情况（例如底部的"下载ClassOS"按钮）
-                    dialog.innerHTML = `
-                    <div class="fixed inset-0 bg-black bg-opacity-50"></div>
-                    <div class="glass-effect rounded-lg p-6 max-w-md w-full mx-4 relative z-10">
-                        <h3 class="text-xl font-semibold mb-4">选择下载版本</h3>
-                        <div class="mb-6 space-y-3">
-                            <div class="p-4 border border-gray-200 rounded-lg">
-                                <div class="flex items-center mb-2">
-                                    <i class="ri-windows-line text-3xl text-primary mr-2"></i>
-                                    <div>
-                                        <h4 class="font-semibold">ClassOS 10 版本</h4>
-                                        <p class="text-gray-500 text-sm">版本号：10.2004</p>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                                    <a href="https://pan.quark.cn/s/825810696562" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="./images/Quark.png" alt="夸克网盘" class="h-4 mr-1">
-                                        夸克网盘 (uRmj)
-                                    </a>
-                                    <a href="https://pan.baidu.com/s/1yio6TY9sa4vhf2sZ-pOEhA?pwd=vs7u" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-4 mr-1">
-                                        百度网盘 (vs7u)
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="p-4 border border-gray-200 rounded-lg">
-                                <div class="flex items-center mb-2">
-                                    <i class="ri-windows-line text-3xl text-primary mr-2"></i>
-                                    <div>
-                                        <h4 class="font-semibold">ClassOS 7 版本</h4>
-                                        <p class="text-gray-500 text-sm">版本号：7.SP1</p>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                                    <a href="https://pan.quark.cn/s/deba95d31f9b" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="./images/Quark.png" alt="夸克网盘" class="h-4 mr-1">
-                                        夸克网盘 (3cG1)
-                                    </a>
-                                    <a href="https://pan.baidu.com/s/1Y8c45kA4qMgf0j3ihUEfsQ?pwd=88dc" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-4 mr-1">
-                                        百度网盘 (88dc)
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="p-4 border border-gray-200 rounded-lg">
-                                <div class="flex items-center mb-2">
-                                    <i class="ri-windows-line text-3xl text-primary mr-2"></i>
-                                    <div>
-                                        <h4 class="font-semibold">ClassOS 11 版本</h4>
-                                        <p class="text-gray-500 text-sm">版本号：11.22H2</p>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                                    <a href="https://pan.quark.cn/s/8ed5272ea080" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="./images/Quark.png" alt="夸克网盘" class="h-4 mr-1">
-                                        夸克网盘 (jMX3)
-                                    </a>
-                                    <a href="https://pan.baidu.com/s/1ImFeBSsDnkXjYpdCb3QGFQ?pwd=3hhx" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-4 mr-1">
-                                        百度网盘 (3hhx)
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="p-4 border border-gray-200 rounded-lg">
-                                <div class="flex items-center mb-2">
-                                    <i class="ri-windows-line text-3xl text-primary mr-2"></i>
-                                    <div>
-                                        <h4 class="font-semibold">ClassOS 11 Pro 版本</h4>
-                                        <p class="text-gray-500 text-sm">版本号：11.23H2</p>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                                    <a href="https://pan.quark.cn/s/待添加" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="./images/Quark.png" alt="夸克网盘" class="h-4 mr-1">
-                                        夸克网盘 (待添加)
-                                    </a>
-                                    <a href="https://pan.baidu.com/s/待添加" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-3 py-1 rounded-button bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm">
-                                        <img src="https://nd-static.bdstatic.com/m-static/wp-brand/favicon.ico" alt="百度网盘" class="h-4 mr-1">
-                                        百度网盘 (待添加)
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex justify-end">
-                            <button class="px-4 py-2 rounded-button border border-gray-300 hover:bg-gray-100 transition-colors">取消</button>
-                        </div>
-                    </div>
-                    `;
+                    </div>`;
                 }
                 
                 document.body.appendChild(dialog);
                 
-                // 添加延时以确保DOM已更新，然后添加可见类触发动画
-                setTimeout(() => {
-                    dialog.classList.add('visible');
-                }, 10);
-                
-                // 通用的关闭对话框事件处理
-                dialog.querySelector('.bg-black').addEventListener('click', () => {
-                    // 先移除可见类触发关闭动画
-                    dialog.classList.remove('visible');
-                    // 等待动画完成后移除元素
-                    setTimeout(() => dialog.remove(), 300);
+                // 添加事件监听器
+                dialog.querySelector('.cancel-download').addEventListener('click', function() {
+                    document.body.removeChild(dialog);
                 });
-                
-                // 修改选择器，确保能准确找到取消按钮
-                const cancelButton = dialog.querySelector('.flex.justify-end button');
-                if (cancelButton) {
-                    cancelButton.addEventListener('click', () => {
-                        // 先移除可见类触发关闭动画
-                        dialog.classList.remove('visible');
-                        // 等待动画完成后移除元素
-                        setTimeout(() => dialog.remove(), 300);
-                    });
-                }
-                
-                // 夸克网盘下载按钮事件
-                const quarkButtons = dialog.querySelectorAll('.quark-download');
-                quarkButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        // 添加按钮点击动画效果
-                        button.style.transform = 'scale(0.95)';
-                        setTimeout(() => {
-                            button.style.transform = 'scale(1)';
-                        }, 100);
-                        
-                        // 先移除可见类触发关闭动画
-                        dialog.classList.remove('visible');
-                        // 等待动画完成后移除元素
-                        setTimeout(() => dialog.remove(), 300);
-                        // 根据版本打开不同的夸克网盘链接
-                        if (version.includes('ClassOS 10')) {
-                            window.open('https://pan.quark.cn/s/825810696562', '_blank');
-                            showNotification('正在跳转到夸克网盘下载页面，提取码：<span class="font-bold">uRmj</span>');
+
+                document.querySelectorAll('.quark-download').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        // 根据版本设置不同的下载链接
+                        let downloadUrl = '';
+                        if (version.includes('ClassOS 11') && version.includes('希沃版')) {
+                            downloadUrl = 'https://pan.quark.cn/s/4f2e00af4fc1'; // 希沃版ClassOS 11
+                        } else if (version.includes('ClassOS 10') && version.includes('希沃版')) {
+                            downloadUrl = 'https://pan.quark.cn/s/3e97aa219c74'; // 希沃版ClassOS 10
+                        } else if (version.includes('ClassOS 7') && version.includes('希沃版')) {
+                            downloadUrl = 'https://pan.quark.cn/s/7be1e0708ea5'; // 希沃版ClassOS 7
+                        } else if (version.includes('ClassOS 10')) {
+                            downloadUrl = 'https://pan.quark.cn/s/3e97aa219c74'; // PC版ClassOS 10
                         } else if (version.includes('ClassOS 7')) {
-                            window.open('https://pan.quark.cn/s/deba95d31f9b', '_blank');
-                            showNotification('正在跳转到夸克网盘下载页面，提取码：<span class="font-bold">3cG1</span>');
-                        } else if (version.includes('ClassOS 11') && !version.includes('Pro')) {
-                            window.open('https://pan.quark.cn/s/8ed5272ea080', '_blank');
-                            showNotification('正在跳转到夸克网盘下载页面，提取码：<span class="font-bold">jMX3</span>');
-                        } else if (version.includes('ClassOS 11 Pro')) {
-                            window.open('https://pan.quark.cn/s/待添加', '_blank');
-                            showNotification('正在跳转到夸克网盘下载页面，提取码：<span class="font-bold">待添加</span>');
+                            downloadUrl = 'https://pan.quark.cn/s/7be1e0708ea5'; // PC版ClassOS 7
+                        } else if (version.includes('ClassOS 11')) {
+                            downloadUrl = 'https://pan.quark.cn/s/4f2e00af4fc1'; // PC版ClassOS 11
                         }
-                    });
-                });
-                
-                // 百度网盘下载按钮事件
-                const baiduButtons = dialog.querySelectorAll('.baidu-download');
-                baiduButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        // 添加按钮点击动画效果
-                        button.style.transform = 'scale(0.95)';
-                        setTimeout(() => {
-                            button.style.transform = 'scale(1)';
-                        }, 100);
                         
-                        // 先移除可见类触发关闭动画
-                        dialog.classList.remove('visible');
-                        // 等待动画完成后移除元素
-                        setTimeout(() => dialog.remove(), 300);
-                        // 根据版本打开不同的百度网盘链接
-                        if (version.includes('ClassOS 10')) {
-                            window.open('https://pan.baidu.com/s/1yio6TY9sa4vhf2sZ-pOEhA?pwd=vs7u', '_blank');
-                            showNotification('正在跳转到百度网盘下载页面，提取码：<span class="font-bold">vs7u</span>');
-                        } else if (version.includes('ClassOS 7')) {
-                            window.open('https://pan.baidu.com/s/1Y8c45kA4qMgf0j3ihUEfsQ?pwd=88dc', '_blank');
-                            showNotification('正在跳转到百度网盘下载页面，提取码：<span class="font-bold">88dc</span>');
-                        } else if (version.includes('ClassOS 11') && !version.includes('Pro')) {
-                            window.open('https://pan.baidu.com/s/1ImFeBSsDnkXjYpdCb3QGFQ?pwd=3hhx', '_blank');
-                            showNotification('正在跳转到百度网盘下载页面，提取码：<span class="font-bold">3hhx</span>');
-                        } else if (version.includes('ClassOS 11 Pro')) {
-                            window.open('https://pan.baidu.com/s/待添加', '_blank');
-                            showNotification('正在跳转到百度网盘下载页面，提取码：<span class="font-bold">待添加</span>');
+                        if (downloadUrl) {
+                            window.open(downloadUrl, '_blank');
                         }
                     });
                 });
             });
         });
         
-        // 显示下载通知的函数
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.className = 'fixed bottom-4 right-4 glass-effect rounded-lg p-4 text-green-600 z-50';
-            notification.style.transform = 'translateX(100px)';
-            notification.style.opacity = '0';
-            notification.innerHTML = message;
-            document.body.appendChild(notification);
+        // 彩蛋按钮功能
+        document.getElementById('eggButton').addEventListener('click', function() {
+            const audio = new Audio('music/egg.mp3');
+            audio.play();
             
-            // 触发进入动画
-            setTimeout(() => {
-                notification.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease';
-                notification.style.transform = 'translateX(0)';
-                notification.style.opacity = '1';
-            }, 10);
+            // 创建动画元素
+            const egg = document.createElement('div');
+            egg.className = 'egg-animation';
+            egg.innerHTML = '<img src="images/egg.png" alt="彩蛋">';
+            document.body.appendChild(egg);
             
-            // 设置退出动画
             setTimeout(() => {
-                notification.style.transform = 'translateX(100px)';
-                notification.style.opacity = '0';
-                setTimeout(() => notification.remove(), 500);
-            }, 4500);
+                document.body.removeChild(egg);
+            }, 3000);
+        });
+        
+        // 图片放大功能
+        function openZoom(img) {
+            const zoomOverlay = document.getElementById('zoomOverlay');
+            const enlargedImage = document.getElementById('enlargedImage');
+            
+            enlargedImage.src = img.src;
+            enlargedImage.alt = img.alt;
+            
+            zoomOverlay.classList.add('visible');
         }
 
         // 加入社区按钮点击事件
@@ -1511,14 +1414,6 @@
             }
         });
 
-        // 图片放大
-        function openZoom(img) {
-            const enlargedImage = document.getElementById('enlargedImage');
-            enlargedImage.src = img.src;
-            const overlay = document.getElementById('zoomOverlay');
-            overlay.classList.add('visible');
-        }
-
         function closeZoom() {
             const overlay = document.getElementById('zoomOverlay');
             overlay.classList.remove('visible');
@@ -1541,13 +1436,4 @@
  *                \  .-\__  '-'  ___/-. /
  *              ___'. .'  /--.--\  `. .'___
  *           ."" '<  `.___\_<|>_/___.' >' "".
- *          | | :  `- \`.;`\ _ /`;.`/ - ` : | |
- *          \  \ `_.   \_ __\ /__ _/   .-` /  /
- *      =====`-.____`.___ \_____/___.-`___.-'=====
- *                        `=---='
- * 
- * 
- *      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * 
- *            佛祖保佑     永不宕机     永无BUG
- -->
+ *          | | :  `- \`.;`\ _ /`;.`/ - `
